@@ -1,0 +1,300 @@
+<%- include('partials/header') %>
+
+<!-- Page Header -->
+<section class="page-header bg-light py-5">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-lg-8 mx-auto">
+                <h1 class="display-4 fw-bold mb-3"><%= pageHeader.title %></h1>
+                <p class="lead text-muted"><%= pageHeader.subtitle %></p>
+                <nav aria-label="breadcrumb" class="mt-4">
+                    <ol class="breadcrumb justify-content-center">
+                        <li class="breadcrumb-item"><a href="/" class="text-decoration-none">Home</a></li>
+                        <li class="breadcrumb-item active">Contact</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Success/Error Messages -->
+<% if (success) { %>
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+    <div class="container">
+        <i class="fas fa-check-circle me-2"></i>
+        <strong>Thank you!</strong> Your message has been sent successfully. We'll get back to you within 24 hours.
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    </div>
+</div>
+<% } %>
+
+<% if (error) { %>
+<div class="alert alert-danger alert-dismissible fade show" role="alert">
+    <div class="container">
+        <i class="fas fa-exclamation-circle me-2"></i>
+        <strong>Error!</strong> There was a problem sending your message. Please try again or contact us directly.
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    </div>
+</div>
+<% } %>
+
+<!-- Contact Section -->
+<section class="contact-section py-5">
+    <div class="container">
+        <div class="row g-5">
+            <!-- Contact Form -->
+            <div class="col-lg-8">
+                <div class="contact-form bg-white p-4 rounded shadow-sm">
+                    <h3 class="fw-bold mb-4">Send us a Message</h3>
+                    <form action="/contact" method="POST" id="contactForm">
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label for="name" class="form-label">Full Name *</label>
+                                <input type="text" class="form-control" id="name" name="name" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="email" class="form-label">Email Address *</label>
+                                <input type="email" class="form-control" id="email" name="email" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="phone" class="form-label">Phone Number</label>
+                                <input type="tel" class="form-control" id="phone" name="phone">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="subject" class="form-label">Subject</label>
+                                <select class="form-select" id="subject" name="subject">
+                                    <option value="General Inquiry">General Inquiry</option>
+                                    <option value="Property Inquiry">Property Inquiry</option>
+                                    <option value="Buying">Buying Property</option>
+                                    <option value="Selling">Selling Property</option>
+                                    <option value="Renting">Renting Property</option>
+                                    <option value="Investment">Investment Opportunities</option>
+                                    <option value="Valuation">Property Valuation</option>
+                                    <option value="Partnership">Partnership</option>
+                                </select>
+                            </div>
+                            <div class="col-12">
+                                <label for="message" class="form-label">Message *</label>
+                                <textarea class="form-control" id="message" name="message" rows="5" required placeholder="Tell us about your real estate needs..."></textarea>
+                                <div class="form-text">Minimum 10 characters required.</div>
+                            </div>
+                            
+                            <!-- Property Interest -->
+                            <div class="col-md-6">
+                                <label for="propertyInterest" class="form-label">Property Type of Interest</label>
+                                <select class="form-select" id="propertyInterest" name="propertyInterest">
+                                    <option value="">Select property type</option>
+                                    <option value="residential">Residential</option>
+                                    <option value="commercial">Commercial</option>
+                                    <option value="industrial">Industrial</option>
+                                    <option value="luxury">Luxury</option>
+                                    <option value="apartment">Apartment</option>
+                                    <option value="villa">Villa</option>
+                                    <option value="office">Office Space</option>
+                                    <option value="retail">Retail Space</option>
+                                    <option value="warehouse">Warehouse</option>
+                                    <option value="land">Land</option>
+                                </select>
+                            </div>
+                            
+                            <!-- Preferred Contact Method -->
+                            <div class="col-md-6">
+                                <label for="preferredContact" class="form-label">Preferred Contact Method</label>
+                                <select class="form-select" id="preferredContact" name="preferredContact">
+                                    <option value="either">Either Email or Phone</option>
+                                    <option value="email">Email Only</option>
+                                    <option value="phone">Phone Only</option>
+                                </select>
+                            </div>
+                            
+                            <div class="col-12">
+                                <button type="submit" class="btn btn-primary btn-lg">
+                                    <i class="fas fa-paper-plane me-2"></i>Send Message
+                                </button>
+                                <button type="reset" class="btn btn-outline-secondary btn-lg ms-2">
+                                    <i class="fas fa-redo me-2"></i>Reset Form
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            
+            <!-- Contact Information -->
+            <div class="col-lg-4">
+                <div class="contact-info">
+                    <!-- Office Information -->
+                    <div class="info-card bg-primary text-white p-4 rounded mb-4">
+                        <h4 class="fw-bold mb-3">
+                            <i class="fas fa-building me-2"></i>Our Office
+                        </h4>
+                        <div class="info-item mb-3">
+                            <i class="fas fa-map-marker-alt me-2"></i>
+                            <div>
+                                <strong>Address:</strong><br>
+                                <%= contactInfo.address %>
+                            </div>
+                        </div>
+                        <div class="info-item mb-3">
+                            <i class="fas fa-phone me-2"></i>
+                            <div>
+                                <strong>Phone:</strong><br>
+                                <a href="tel:<%= contactInfo.phone.replace(/\D/g, '') %>" class="text-white">
+                                    <%= contactInfo.phone %>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-envelope me-2"></i>
+                            <div>
+                                <strong>Email:</strong><br>
+                                <a href="mailto:<%= contactInfo.email %>" class="text-white">
+                                    <%= contactInfo.email %>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Business Hours -->
+                    <div class="info-card bg-white p-4 rounded shadow-sm mb-4">
+                        <h5 class="fw-bold mb-3">
+                            <i class="fas fa-clock me-2 text-primary"></i>Business Hours
+                        </h5>
+                        <div class="hours-list">
+                            <div class="d-flex justify-content-between mb-2">
+                                <span>Monday - Friday:</span>
+                                <span class="fw-bold"><%= contactInfo.hours.weekdays %></span>
+                            </div>
+                            <div class="d-flex justify-content-between mb-2">
+                                <span>Saturday:</span>
+                                <span class="fw-bold"><%= contactInfo.hours.saturday %></span>
+                            </div>
+                            <div class="d-flex justify-content-between">
+                                <span>Sunday:</span>
+                                <span class="fw-bold"><%= contactInfo.hours.sunday %></span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Quick Actions -->
+                    <div class="quick-actions">
+                        <h5 class="fw-bold mb-3">Quick Actions</h5>
+                        <div class="d-grid gap-2">
+                            <a href="tel:<%= contactInfo.phone.replace(/\D/g, '') %>" class="btn btn-outline-primary">
+                                <i class="fas fa-phone me-2"></i>Call Now
+                            </a>
+                            <a href="mailto:<%= contactInfo.email %>" class="btn btn-outline-primary">
+                                <i class="fas fa-envelope me-2"></i>Email Us
+                            </a>
+                            <a href="/services" class="btn btn-outline-primary">
+                                <i class="fas fa-list me-2"></i>View Services
+                            </a>
+                            <a href="/projects" class="btn btn-outline-primary">
+                                <i class="fas fa-building me-2"></i>Browse Properties
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Map Section (Placeholder) -->
+<section class="map-section">
+    <div class="container-fluid px-0">
+        <div class="map-placeholder bg-light d-flex align-items-center justify-content-center" style="height: 400px;">
+            <div class="text-center text-muted">
+                <i class="fas fa-map-marked-alt fs-1 mb-3"></i>
+                <h5>Interactive Map Coming Soon</h5>
+                <p>Find us easily with our interactive map feature.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ Section -->
+<section class="faq-section py-5 bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center mb-5">
+                <h2 class="display-5 fw-bold mb-3">Frequently Asked Questions</h2>
+                <p class="lead text-muted">Quick answers to common questions about our services.</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <div class="accordion" id="faqAccordion">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                                How quickly do you respond to inquiries?
+                            </button>
+                        </h2>
+                        <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                We typically respond to all inquiries within 24 hours during business days. For urgent matters, please call us directly.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                                Do you charge for initial consultations?
+                            </button>
+                        </h2>
+                        <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                No, our initial consultation is completely free. We'll assess your needs and provide recommendations at no cost.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                                What areas do you serve?
+                            </button>
+                        </h2>
+                        <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                We serve the entire metro area and surrounding communities. Contact us to confirm service availability in your specific location.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+// Form validation and enhancement
+document.getElementById('contactForm').addEventListener('submit', function(e) {
+    const message = document.getElementById('message').value;
+    if (message.length < 10) {
+        e.preventDefault();
+        alert('Message must be at least 10 characters long.');
+        return false;
+    }
+});
+
+// Character counter for message field
+const messageField = document.getElementById('message');
+messageField.addEventListener('input', function() {
+    const length = this.value.length;
+    const minLength = 10;
+    const remaining = Math.max(0, minLength - length);
+    
+    let helpText = this.nextElementSibling;
+    if (remaining > 0) {
+        helpText.textContent = `${remaining} more characters needed (minimum 10).`;
+        helpText.className = 'form-text text-warning';
+    } else {
+        helpText.textContent = `${length} characters entered.`;
+        helpText.className = 'form-text text-success';
+    }
+});
+</script>
+
+<%- include('partials/footer') %>
