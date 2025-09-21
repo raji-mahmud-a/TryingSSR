@@ -1,0 +1,244 @@
+<%- include('partials/header') %>
+
+<!-- Page Header -->
+<section class="page-header bg-light py-5">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-lg-8 mx-auto">
+                <h1 class="display-4 fw-bold mb-3"><%= pageHeader.title %></h1>
+                <p class="lead text-muted"><%= pageHeader.subtitle %></p>
+                <nav aria-label="breadcrumb" class="mt-4">
+                    <ol class="breadcrumb justify-content-center">
+                        <li class="breadcrumb-item"><a href="/" class="text-decoration-none">Home</a></li>
+                        <li class="breadcrumb-item active">Services</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Services Grid -->
+<section class="services-grid py-5">
+    <div class="container">
+        <% if (typeof error !== 'undefined' && error) { %>
+        <div class="alert alert-warning text-center">
+            <i class="fas fa-exclamation-triangle me-2"></i>
+            <%= error %>
+        </div>
+        <% } %>
+
+        <% if (services && services.length > 0) { %>
+        <div class="row g-4">
+            <% services.forEach((service, index) => { %>
+            <div class="col-lg-4 col-md-6">
+                <div class="service-card card h-100 shadow-sm hover-shadow">
+                    <div class="card-img-container position-relative">
+                        <img src="<%= service.image %>" class="card-img-top" alt="<%= service.title %>" style="height: 250px; object-fit: cover;">
+                        <div class="service-overlay position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center" style="background: rgba(0,123,255,0.8); opacity: 0; transition: opacity 0.3s;">
+                            <div class="text-center text-white">
+                                <i class="fas fa-<%= service.icon %> fs-1 mb-2"></i>
+                                <h5>Learn More</h5>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card-body d-flex flex-column">
+                        <div class="service-header mb-3">
+                            <div class="service-icon mb-2">
+                                <i class="fas fa-<%= service.icon %> fs-3 text-primary"></i>
+                            </div>
+                            <h5 class="card-title fw-bold"><%= service.title %></h5>
+                        </div>
+                        
+                        <p class="card-text text-muted flex-grow-1">
+                            <%= service.shortDescription || service.description %>
+                        </p>
+                        
+                        <% if (service.features && service.features.length > 0) { %>
+                        <div class="service-features mb-3">
+                            <small class="text-muted fw-bold">Key Features:</small>
+                            <ul class="list-unstyled mt-2">
+                                <% service.features.slice(0, 3).forEach(feature => { %>
+                                <li class="small text-muted">
+                                    <i class="fas fa-check text-success me-1"></i><%= feature %>
+                                </li>
+                                <% }); %>
+                            </ul>
+                        </div>
+                        <% } %>
+                        
+                        <div class="service-footer d-flex justify-content-between align-items-center mt-auto">
+                            <% if (service.price) { %>
+                            <div class="service-price">
+                                <small class="text-muted">Price:</small><br>
+                                <span class="fw-bold text-primary"><%= service.price %></span>
+                            </div>
+                            <% } %>
+                            
+                            <a href="/services/<%= service.slug %>" class="btn btn-primary">
+                                Learn More <i class="fas fa-arrow-right ms-1"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <% }); %>
+        </div>
+        
+        <% } else { %>
+        <div class="text-center py-5">
+            <div class="empty-state">
+                <i class="fas fa-concierge-bell fs-1 text-muted mb-3"></i>
+                <h4 class="text-muted">No Services Available</h4>
+                <p class="text-muted">We're working on adding our services. Please check back soon!</p>
+                <a href="/contact" class="btn btn-primary">
+                    <i class="fas fa-envelope me-2"></i>Contact Us for Information
+                </a>
+            </div>
+        </div>
+        <% } %>
+    </div>
+</section>
+
+<!-- Service Categories -->
+<section class="service-categories bg-light py-5">
+    <div class="container">
+        <div class="row text-center mb-5">
+            <div class="col-lg-8 mx-auto">
+                <h2 class="display-5 fw-bold mb-3">Service Categories</h2>
+                <p class="lead text-muted">Explore our comprehensive range of real estate services</p>
+            </div>
+        </div>
+        <div class="row g-4">
+            <div class="col-lg-3 col-md-6">
+                <div class="category-card text-center p-4 bg-white rounded shadow-sm h-100">
+                    <div class="category-icon mb-3">
+                        <i class="fas fa-home fs-1 text-primary"></i>
+                    </div>
+                    <h5 class="fw-bold">Residential</h5>
+                    <p class="text-muted small">Buying, selling, and renting residential properties including homes, condos, and apartments.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="category-card text-center p-4 bg-white rounded shadow-sm h-100">
+                    <div class="category-icon mb-3">
+                        <i class="fas fa-building fs-1 text-primary"></i>
+                    </div>
+                    <h5 class="fw-bold">Commercial</h5>
+                    <p class="text-muted small">Office spaces, retail locations, warehouses, and investment properties for businesses.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="category-card text-center p-4 bg-white rounded shadow-sm h-100">
+                    <div class="category-icon mb-3">
+                        <i class="fas fa-chart-line fs-1 text-primary"></i>
+                    </div>
+                    <h5 class="fw-bold">Investment</h5>
+                    <p class="text-muted small">Portfolio management, market analysis, and investment property acquisition strategies.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="category-card text-center p-4 bg-white rounded shadow-sm h-100">
+                    <div class="category-icon mb-3">
+                        <i class="fas fa-tools fs-1 text-primary"></i>
+                    </div>
+                    <h5 class="fw-bold">Property Management</h5>
+                    <p class="text-muted small">Comprehensive property management including maintenance, tenant relations, and rent collection.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Process Section -->
+<section class="process-section py-5">
+    <div class="container">
+        <div class="row text-center mb-5">
+            <div class="col-lg-8 mx-auto">
+                <h2 class="display-5 fw-bold mb-3">Our Process</h2>
+                <p class="lead text-muted">Simple steps to achieving your real estate goals</p>
+            </div>
+        </div>
+        <div class="row g-4">
+            <div class="col-lg-3 col-md-6">
+                <div class="process-step text-center">
+                    <div class="step-number bg-primary text-white rounded-circle d-flex align-items-center justify-content-center mx-auto mb-3" style="width: 60px; height: 60px;">
+                        <span class="fw-bold fs-4">1</span>
+                    </div>
+                    <h5 class="fw-bold">Consultation</h5>
+                    <p class="text-muted">We meet to understand your needs, budget, and timeline.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="process-step text-center">
+                    <div class="step-number bg-primary text-white rounded-circle d-flex align-items-center justify-content-center mx-auto mb-3" style="width: 60px; height: 60px;">
+                        <span class="fw-bold fs-4">2</span>
+                    </div>
+                    <h5 class="fw-bold">Strategy</h5>
+                    <p class="text-muted">We develop a customized plan tailored to your goals.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="process-step text-center">
+                    <div class="step-number bg-primary text-white rounded-circle d-flex align-items-center justify-content-center mx-auto mb-3" style="width: 60px; height: 60px;">
+                        <span class="fw-bold fs-4">3</span>
+                    </div>
+                    <h5 class="fw-bold">Execution</h5>
+                    <p class="text-muted">We implement the plan with professional expertise.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="process-step text-center">
+                    <div class="step-number bg-primary text-white rounded-circle d-flex align-items-center justify-content-center mx-auto mb-3" style="width: 60px; height: 60px;">
+                        <span class="fw-bold fs-4">4</span>
+                    </div>
+                    <h5 class="fw-bold">Success</h5>
+                    <p class="text-muted">We celebrate your success and provide ongoing support.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="cta-section bg-primary text-white py-5">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-lg-8 mx-auto">
+                <h3 class="fw-bold mb-3">Need a Custom Solution?</h3>
+                <p class="lead mb-4">Every client has unique needs. Let us create a personalized real estate strategy just for you.</p>
+                <a href="/contact" class="btn btn-light btn-lg me-3">
+                    <i class="fas fa-phone me-2"></i>Get Consultation
+                </a>
+                <a href="/projects" class="btn btn-outline-light btn-lg">
+                    <i class="fas fa-eye me-2"></i>View Properties
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+.service-card:hover .service-overlay {
+    opacity: 1 !important;
+}
+
+.hover-shadow:hover {
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+    transform: translateY(-2px);
+    transition: all 0.3s ease;
+}
+
+.category-card:hover {
+    transform: translateY(-3px);
+    transition: all 0.3s ease;
+}
+
+.process-step:hover .step-number {
+    transform: scale(1.1);
+    transition: all 0.3s ease;
+}
+</style>
+
+<%- include('partials/footer') %>

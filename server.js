@@ -3,6 +3,8 @@ const path = require('path');
 const session = require('express-session');
 const MongoStore = require('connect-mongo');
 require('dotenv').config();
+const expressLayouts = require('express-ejs-layouts');
+
 
 const app = express();
 
@@ -17,17 +19,22 @@ app.use(express.urlencoded({ extended: true }));
 // Static files
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use(expressLayouts);
+
+app.set('layout', 'main'); 
+
+
 // View engine setup
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
 // Session configuration (for later admin functionality)
 app.use(session({
-  secret: process.env.SESSION_SECRET || 'default-secret-change-this',
+  secret: process.env.SESSION_SECRET || 'default-secret',
   resave: false,
   saveUninitialized: false,
   store: MongoStore.create({
-    mongoUrl: process.env.MONGODB_URI || 'mongodb://localhost:27017/mayor-k-prime-properties'
+    mongoUrl: process.env.MONGODB_URI || 'mongodb://localhost/your-database-name'
   }),
   cookie: {
     secure: process.env.NODE_ENV === 'production',
@@ -35,6 +42,7 @@ app.use(session({
     maxAge: 1000 * 60 * 60 * 24 // 24 hours
   }
 }));
+
 
 // Routes
 const indexRoutes = require('./routes/index');
