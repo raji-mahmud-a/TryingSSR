@@ -10,7 +10,7 @@ const app = express();
 const connectDB = require('./config/database');
 connectDB();
 
-// Middleware
+// Middleware code
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
