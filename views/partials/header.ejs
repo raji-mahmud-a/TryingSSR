@@ -1,103 +1,55 @@
-<header class="header">
-    <!-- Top Bar -->
-    <div class="top-bar bg-primary text-white py-2">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-md-6">
-                    <div class="contact-info">
-                        <span class="me-3">
-                            <i class="fas fa-phone me-1"></i>
-                            <a href="tel:+15551234567" class="text-white text-decoration-none">+1 (555) 123-4567</a>
-                        </span>
-                        <span>
-                            <i class="fas fa-envelope me-1"></i>
-                            <a href="mailto:info@mayorkprimeproperties.com" class="text-white text-decoration-none">info@mayorkprimeproperties.com</a>
-                        </span>
-                    </div>
-                </div>
-                <div class="col-md-6 text-end">
-                    <div class="social-links">
-                        <a href="#" class="text-white me-2"><i class="fab fa-facebook"></i></a>
-                        <a href="#" class="text-white me-2"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="text-white me-2"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="text-white"><i class="fab fa-linkedin"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+<nav class="flex items-center justify-between h-16">
+  <!-- Logo -->
+  <div class="flex items-center">
+    <a href="/" class="flex items-center space-x-2 text-brand-600 hover:text-brand-700 font-bold text-xl">
+      <img src="/images/logo.png" alt="Mayor-K Prime Properties" class="h-8 w-auto">
+      <span>Mayor-K Prime</span>
+    </a>
+  </div>
 
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
-        <div class="container">
-            <!-- Logo -->
-            <a class="navbar-brand" href="/">
-                <img src="/images/logo.png" alt="Mayor-K Prime Properties" height="40" class="d-none d-sm-inline">
-                <span class="fw-bold text-primary fs-4">Mayor-K Prime</span>
-            </a>
+  <!-- Desktop Menu -->
+  <div class="hidden md:flex space-x-6">
+    <a href="/" class="text-navy-800 hover:text-brand-600 transition">Home</a>
+    <a href="/properties" class="text-navy-800 hover:text-brand-600 transition">Properties</a>
+    <a href="/about" class="text-navy-800 hover:text-brand-600 transition">About</a>
+    <a href="/contact" class="text-navy-800 hover:text-brand-600 transition">Contact</a>
+  </div>
 
-            <!-- Mobile toggle -->
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+  <!-- CTA Button -->
+  <div class="hidden md:flex">
+    <a href="/list-property" class="bg-brand-500 text-white px-4 py-2 rounded-lg shadow hover:bg-brand-600 transition">
+      List Your Property
+    </a>
+  </div>
 
-            <!-- Navigation Menu -->
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav mx-auto">
-                    <li class="nav-item">
-                        <a class="nav-link <%= currentPage === 'home' ? 'active' : '' %>" href="/">
-                            <i class="fas fa-home me-1"></i>Home
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link <%= currentPage === 'about' ? 'active' : '' %>" href="/about">
-                            <i class="fas fa-users me-1"></i>About
-                        </a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle <%= currentPage === 'services' ? 'active' : '' %>" href="/services" id="servicesDropdown" role="button" data-bs-toggle="dropdown">
-                            <i class="fas fa-concierge-bell me-1"></i>Services
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="/services">All Services</a></li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="/services/buying-assistance">Buying Assistance</a></li>
-                            <li><a class="dropdown-item" href="/services/selling-support">Selling Support</a></li>
-                            <li><a class="dropdown-item" href="/services/property-management">Property Management</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle <%= currentPage === 'projects' ? 'active' : '' %>" href="/projects" id="projectsDropdown" role="button" data-bs-toggle="dropdown">
-                            <i class="fas fa-building me-1"></i>Projects
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="/projects">All Projects</a></li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="/projects?category=residential">Residential</a></li>
-                            <li><a class="dropdown-item" href="/projects?category=commercial">Commercial</a></li>
-                            <li><a class="dropdown-item" href="/projects?category=luxury">Luxury</a></li>
-                            <li><a class="dropdown-item" href="/projects?featured=true">Featured</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link <%= currentPage === 'blog' ? 'active' : '' %>" href="/blog">
-                            <i class="fas fa-blog me-1"></i>Blog
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link <%= currentPage === 'contact' ? 'active' : '' %>" href="/contact">
-                            <i class="fas fa-envelope me-1"></i>Contact
-                        </a>
-                    </li>
-                </ul>
+  <!-- Mobile Menu Button -->
+  <div class="md:hidden">
+    <button id="mobileMenuBtn" class="text-navy-800 hover:text-brand-600 focus:outline-none">
+      <i class="fas fa-bars text-2xl"></i>
+    </button>
+  </div>
+</nav>
 
-                <!-- CTA Button -->
-                <div class="navbar-nav">
-                    <a href="/contact" class="btn btn-primary">
-                        <i class="fas fa-phone me-1"></i>Get Quote
-                    </a>
-                </div>
-            </div>
-        </div>
-    </nav>
-</header>
+<!-- Mobile Menu -->
+<div id="mobileMenu" class="hidden flex-col space-y-4 mt-4 md:hidden">
+  <a href="/" class="block text-navy-800 hover:text-brand-600 transition">Home</a>
+  <a href="/properties" class="block text-navy-800 hover:text-brand-600 transition">Properties</a>
+  <a href="/about" class="block text-navy-800 hover:text-brand-600 transition">About</a>
+  <a href="/contact" class="block text-navy-800 hover:text-brand-600 transition">Contact</a>
+  <a href="/list-property" class="block bg-brand-500 text-white px-4 py-2 rounded-lg shadow hover:bg-brand-600 transition">
+    List Your Property
+  </a>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const btn = document.getElementById('mobileMenuBtn');
+    const menu = document.getElementById('mobileMenu');
+    btn.addEventListener('click', () => {
+      menu.classList.toggle('hidden');
+      btn.innerHTML = menu.classList.contains('hidden')
+        ? '<i class="fas fa-bars text-2xl"></i>'
+        : '<i class="fas fa-times text-2xl"></i>';
+    });
+  });
+</script>

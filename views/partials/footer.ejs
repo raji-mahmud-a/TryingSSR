@@ -1,88 +1,45 @@
-<footer class="footer bg-dark text-white">
-    <div class="container py-5">
-        <div class="row">
-            <!-- Company Info -->
-            <div class="col-lg-4 col-md-6 mb-4">
-                <h5 class="text-primary mb-3">Mayor-K Prime Properties</h5>
-                <p class="mb-3">Your trusted partner in real estate. We help you find the perfect property and provide exceptional service every step of the way.</p>
-                <div class="contact-info">
-                    <p><i class="fas fa-map-marker-alt me-2"></i>123 Prime Street, Real Estate District, City 12345</p>
-                    <p><i class="fas fa-phone me-2"></i><a href="tel:+15551234567" class="text-white">+1 (555) 123-4567</a></p>
-                    <p><i class="fas fa-envelope me-2"></i><a href="mailto:info@mayorkprimeproperties.com" class="text-white">info@mayorkprimeproperties.com</a></p>
-                </div>
-            </div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+  <!-- Logo & About -->
+  <div>
+    <a href="/" class="flex items-center space-x-2 text-white font-bold text-lg">
+      <img src="/images/logo.png" alt="Mayor-K Prime Properties" class="h-8 w-auto">
+      <span>Mayor-K Prime</span>
+    </a>
+    <p class="mt-3 text-navy-100 text-sm">
+      Premier real estate services and property management solutions.  
+      Find your dream home with Mayor-K Prime Properties.
+    </p>
+  </div>
 
-            <!-- Quick Links -->
-            <div class="col-lg-2 col-md-6 mb-4">
-                <h5 class="mb-3">Quick Links</h5>
-                <ul class="list-unstyled">
-                    <li class="mb-2"><a href="/" class="text-light text-decoration-none">Home</a></li>
-                    <li class="mb-2"><a href="/about" class="text-light text-decoration-none">About Us</a></li>
-                    <li class="mb-2"><a href="/services" class="text-light text-decoration-none">Services</a></li>
-                    <li class="mb-2"><a href="/projects" class="text-light text-decoration-none">Projects</a></li>
-                    <li class="mb-2"><a href="/blog" class="text-light text-decoration-none">Blog</a></li>
-                    <li class="mb-2"><a href="/contact" class="text-light text-decoration-none">Contact</a></li>
-                </ul>
-            </div>
+  <!-- Quick Links -->
+  <div>
+    <h3 class="font-semibold text-white mb-3">Quick Links</h3>
+    <ul class="space-y-2">
+      <li><a href="/" class="hover:text-brand-300 transition">Home</a></li>
+      <li><a href="/properties" class="hover:text-brand-300 transition">Properties</a></li>
+      <li><a href="/about" class="hover:text-brand-300 transition">About</a></li>
+      <li><a href="/contact" class="hover:text-brand-300 transition">Contact</a></li>
+    </ul>
+  </div>
 
-            <!-- Services -->
-            <div class="col-lg-3 col-md-6 mb-4">
-                <h5 class="mb-3">Our Services</h5>
-                <ul class="list-unstyled">
-                    <li class="mb-2"><a href="/services/buying-assistance" class="text-light text-decoration-none">Buying Assistance</a></li>
-                    <li class="mb-2"><a href="/services/selling-support" class="text-light text-decoration-none">Selling Support</a></li>
-                    <li class="mb-2"><a href="/services/property-management" class="text-light text-decoration-none">Property Management</a></li>
-                    <li class="mb-2"><a href="/services/investment-consultation" class="text-light text-decoration-none">Investment Consultation</a></li>
-                    <li class="mb-2"><a href="/services/property-valuation" class="text-light text-decoration-none">Property Valuation</a></li>
-                </ul>
-            </div>
+  <!-- Contact & Social -->
+  <div>
+    <h3 class="font-semibold text-white mb-3">Get in Touch</h3>
+    <p class="text-navy-100 text-sm">123 Prime Street, Lagos, Nigeria</p>
+    <p class="text-navy-100 text-sm">+234 800 000 0000</p>
+    <p class="text-navy-100 text-sm">info@mayorkprime.com</p>
 
-            <!-- Newsletter & Social -->
-            <div class="col-lg-3 col-md-6 mb-4">
-                <h5 class="mb-3">Stay Connected</h5>
-                <p class="mb-3">Subscribe to our newsletter for the latest property updates and market insights.</p>
-                
-                <!-- Newsletter Form -->
-                <form class="mb-4" id="newsletterForm">
-                    <div class="input-group">
-                        <input type="email" class="form-control" placeholder="Your email" required>
-                        <button class="btn btn-primary" type="submit">
-                            <i class="fas fa-paper-plane"></i>
-                        </button>
-                    </div>
-                </form>
-
-                <!-- Social Media -->
-                <div class="social-links">
-                    <h6 class="mb-2">Follow Us</h6>
-                    <a href="#" class="text-white me-3 fs-4"><i class="fab fa-facebook"></i></a>
-                    <a href="#" class="text-white me-3 fs-4"><i class="fab fa-twitter"></i></a>
-                    <a href="#" class="text-white me-3 fs-4"><i class="fab fa-instagram"></i></a>
-                    <a href="#" class="text-white me-3 fs-4"><i class="fab fa-linkedin"></i></a>
-                    <a href="#" class="text-white fs-4"><i class="fab fa-youtube"></i></a>
-                </div>
-            </div>
-        </div>
-
-        <hr class="my-4 border-secondary">
-
-        <!-- Copyright -->
-        <div class="row align-items-center">
-            <div class="col-md-6">
-                <p class="mb-0">&copy; <%= new Date().getFullYear() %> Mayor-K Prime Properties. All rights reserved.</p>
-            </div>
-            <div class="col-md-6 text-md-end">
-                <div class="footer-links">
-                    <a href="/privacy" class="text-light text-decoration-none me-3">Privacy Policy</a>
-                    <a href="/terms" class="text-light text-decoration-none me-3">Terms of Service</a>
-                    <a href="/sitemap" class="text-light text-decoration-none">Sitemap</a>
-                </div>
-            </div>
-        </div>
+    <!-- Social Links -->
+    <div class="flex space-x-4 mt-4">
+      <a href="#" class="text-navy-100 hover:text-brand-300"><i class="fab fa-facebook-f"></i></a>
+      <a href="#" class="text-navy-100 hover:text-brand-300"><i class="fab fa-twitter"></i></a>
+      <a href="#" class="text-navy-100 hover:text-brand-300"><i class="fab fa-instagram"></i></a>
+      <a href="#" class="text-navy-100 hover:text-brand-300"><i class="fab fa-linkedin-in"></i></a>
     </div>
+  </div>
+</div>
 
-    <!-- Back to Top Button -->
-    <button id="backToTop" class="btn btn-primary position-fixed bottom-0 end-0 m-3" style="display: none; z-index: 1000;">
-        <i class="fas fa-arrow-up"></i>
-    </button>
-</footer>
+<!-- Bottom Bar -->
+<div class="border-t border-navy-700 mt-6 pt-4 text-center text-sm text-navy-200">
+  © <%= new Date().getFullYear() %> Mayor-K Prime Properties. All rights reserved.
+</div>
