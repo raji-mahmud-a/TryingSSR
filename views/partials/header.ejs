@@ -1,55 +1,110 @@
-<nav class="flex items-center justify-between h-16">
-  <!-- Logo -->
-  <div class="flex items-center">
-    <a href="/" class="flex items-center space-x-2 text-brand-600 hover:text-brand-700 font-bold text-xl">
-      <img src="/images/logo.png" alt="Mayor-K Prime Properties" class="h-8 w-auto">
-      <span>Mayor-K Prime</span>
-    </a>
-  </div>
+<header class="fixed top-0 w-full z-50 bg-navy-800 text-white backdrop-blur-md border-b border-navy-700 transition-all duration-300">
+    <!-- Top Bar -->
+    <div class="bg-navy-800 text-white py-2 animate-slide-down">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between text-sm sm:text-md">
+                <div class="flex items-center space-x-4">
+                    <div class="flex items-center space-x-2 group">
+                        <i class="fas fa-phone text-brand-400 group-hover:animate-bounce-gentle"></i>
+                        <a href="tel:+15551234567" class="hover:text-brand-300 transition-colors duration-200">
+                            +1 (555) 123-4567
+                        </a>
+                    </div>
+                    <div class="hidden md:flex items-center space-x-2 group">
+                        <i class="fas fa-envelope text-brand-400 group-hover:animate-pulse-gentle"></i>
+                        <a href="mailto:info@mayorkprimeproperties.com" class="hover:text-brand-300 transition-colors duration-200">
+                            info@mayorkprimeproperties.com
+                        </a>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-3">
+                    <a href="#" class="hover:text-brand-300 transition-colors duration-200"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="hover:text-brand-300 transition-colors duration-200"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="hover:text-brand-300 transition-colors duration-200"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="hover:text-brand-300 transition-colors duration-200"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
 
-  <!-- Desktop Menu -->
-  <div class="hidden md:flex space-x-6">
-    <a href="/" class="text-navy-800 hover:text-brand-600 transition">Home</a>
-    <a href="/properties" class="text-navy-800 hover:text-brand-600 transition">Properties</a>
-    <a href="/about" class="text-navy-800 hover:text-brand-600 transition">About</a>
-    <a href="/contact" class="text-navy-800 hover:text-brand-600 transition">Contact</a>
-  </div>
+    <!-- Navigation -->
+    <nav class="relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-3">
+                <!-- Logo -->
+                <div class="flex-shrink-0">
+                    <a href="/" class="flex items-center">
+                        <!-- Mobile logo -->
+                        <img src="/images/logo-icon.png" alt="Logo" class="h-10 w-auto block sm:hidden">
+                        <!-- Desktop logo -->
+                        <img src="/images/logo-full.png" alt="Mayor-K Prime Properties" class="h-10 w-auto hidden sm:block">
+                    </a>
+                </div>
 
-  <!-- CTA Button -->
-  <div class="hidden md:flex">
-    <a href="/list-property" class="bg-brand-500 text-white px-4 py-2 rounded-lg shadow hover:bg-brand-600 transition">
-      List Your Property
-    </a>
-  </div>
+                <!-- Desktop Navigation -->
+                <div class="hidden lg:flex items-center space-x-1 text-white">
+                    <a href="/" class="px-4 py-2 rounded-lg hover:bg-navy-700 transition">Home</a>
+                    <a href="/about" class="px-4 py-2 rounded-lg hover:bg-navy-700 transition">About</a>
+                    <a href="/services" class="px-4 py-2 rounded-lg hover:bg-navy-700 transition">Services</a>
+                    <a href="/projects" class="px-4 py-2 rounded-lg hover:bg-navy-700 transition">Projects</a>
+                    <a href="/blog" class="px-4 py-2 rounded-lg hover:bg-navy-700 transition">Blog</a>
+                    <a href="/contact" class="px-4 py-2 rounded-lg hover:bg-navy-700 transition">Contact</a>
+                </div>
 
-  <!-- Mobile Menu Button -->
-  <div class="md:hidden">
-    <button id="mobileMenuBtn" class="text-navy-800 hover:text-brand-600 focus:outline-none">
-      <i class="fas fa-bars text-2xl"></i>
-    </button>
-  </div>
-</nav>
+                <!-- CTA -->
+                <div class="hidden lg:block">
+                    <a href="/contact" class="bg-gradient-to-r from-brand-500 to-brand-600 text-white px-5 py-2 rounded-lg font-semibold hover:from-brand-600 hover:to-brand-700 transition">
+                        Get Quote
+                    </a>
+                </div>
 
-<!-- Mobile Menu -->
-<div id="mobileMenu" class="hidden flex-col space-y-4 mt-4 md:hidden">
-  <a href="/" class="block text-navy-800 hover:text-brand-600 transition">Home</a>
-  <a href="/properties" class="block text-navy-800 hover:text-brand-600 transition">Properties</a>
-  <a href="/about" class="block text-navy-800 hover:text-brand-600 transition">About</a>
-  <a href="/contact" class="block text-navy-800 hover:text-brand-600 transition">Contact</a>
-  <a href="/list-property" class="block bg-brand-500 text-white px-4 py-2 rounded-lg shadow hover:bg-brand-600 transition">
-    List Your Property
-  </a>
-</div>
+                <!-- Mobile menu button -->
+                <div class="lg:hidden">
+                    <button id="mobile-menu-btn" class="flex items-center space-x-2 px-3 py-2 rounded-lg bg-navy-700 hover:bg-navy-600 transition">
+                        <i class="fas fa-bars text-lg"></i>
+                        <span class="text-sm">Menu</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu" class="lg:hidden absolute top-full left-0 w-full bg-navy-800 shadow-lg border-t border-navy-700 opacity-0 invisible transition-all duration-300 transform -translate-y-3">
+            <div class="p-4 space-y-2 text-white">
+                <a href="/" class="block px-4 py-2 rounded-lg hover:bg-navy-700 transition">Home</a>
+                <a href="/about" class="block px-4 py-2 rounded-lg hover:bg-navy-700 transition">About</a>
+                <a href="/services" class="block px-4 py-2 rounded-lg hover:bg-navy-700 transition">Services</a>
+                <a href="/projects" class="block px-4 py-2 rounded-lg hover:bg-navy-700 transition">Projects</a>
+                <a href="/blog" class="block px-4 py-2 rounded-lg hover:bg-navy-700 transition">Blog</a>
+                <a href="/contact" class="block px-4 py-2 rounded-lg hover:bg-navy-700 transition">Contact</a>
+                <div class="pt-3">
+                    <a href="/contact" class="block w-full bg-gradient-to-r from-brand-500 to-brand-600 text-white px-5 py-2 rounded-lg text-center font-semibold hover:from-brand-600 hover:to-brand-700 transition">
+                        Get Quote
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<!-- Spacer for fixed header -->
+<div style="height:6.25rem;"></div>
 
 <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const btn = document.getElementById('mobileMenuBtn');
-    const menu = document.getElementById('mobileMenu');
+document.addEventListener('DOMContentLoaded', function() {
+    const btn = document.getElementById('mobile-menu-btn');
+    const menu = document.getElementById('mobile-menu');
+    let open = false;
+
     btn.addEventListener('click', () => {
-      menu.classList.toggle('hidden');
-      btn.innerHTML = menu.classList.contains('hidden')
-        ? '<i class="fas fa-bars text-2xl"></i>'
-        : '<i class="fas fa-times text-2xl"></i>';
+        open = !open;
+        if (open) {
+            menu.classList.remove('opacity-0', 'invisible', '-translate-y-3');
+            btn.innerHTML = '<i class="fas fa-times text-lg"></i><span class="ml-2 text-sm">Close</span>';
+        } else {
+            menu.classList.add('opacity-0', 'invisible', '-translate-y-3');
+            btn.innerHTML = '<i class="fas fa-bars text-lg"></i><span class="ml-2 text-sm">Menu</span>';
+        }
     });
-  });
+});
 </script>

@@ -1,45 +1,111 @@
-<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-  <!-- Logo & About -->
-  <div>
-    <a href="/" class="flex items-center space-x-2 text-white font-bold text-lg">
-      <img src="/images/logo.png" alt="Mayor-K Prime Properties" class="h-8 w-auto">
-      <span>Mayor-K Prime</span>
-    </a>
-    <p class="mt-3 text-navy-100 text-sm">
-      Premier real estate services and property management solutions.  
-      Find your dream home with Mayor-K Prime Properties.
-    </p>
-  </div>
-
-  <!-- Quick Links -->
-  <div>
-    <h3 class="font-semibold text-white mb-3">Quick Links</h3>
-    <ul class="space-y-2">
-      <li><a href="/" class="hover:text-brand-300 transition">Home</a></li>
-      <li><a href="/properties" class="hover:text-brand-300 transition">Properties</a></li>
-      <li><a href="/about" class="hover:text-brand-300 transition">About</a></li>
-      <li><a href="/contact" class="hover:text-brand-300 transition">Contact</a></li>
-    </ul>
-  </div>
-
-  <!-- Contact & Social -->
-  <div>
-    <h3 class="font-semibold text-white mb-3">Get in Touch</h3>
-    <p class="text-navy-100 text-sm">123 Prime Street, Lagos, Nigeria</p>
-    <p class="text-navy-100 text-sm">+234 800 000 0000</p>
-    <p class="text-navy-100 text-sm">info@mayorkprime.com</p>
-
-    <!-- Social Links -->
-    <div class="flex space-x-4 mt-4">
-      <a href="#" class="text-navy-100 hover:text-brand-300"><i class="fab fa-facebook-f"></i></a>
-      <a href="#" class="text-navy-100 hover:text-brand-300"><i class="fab fa-twitter"></i></a>
-      <a href="#" class="text-navy-100 hover:text-brand-300"><i class="fab fa-instagram"></i></a>
-      <a href="#" class="text-navy-100 hover:text-brand-300"><i class="fab fa-linkedin-in"></i></a>
+<footer class="bg-gradient-to-br from-navy-900 to-navy-800 text-white relative overflow-hidden font-inter">
+    <!-- Background Elements -->
+    <div class="absolute inset-0">
+        <div class="absolute top-20 left-20 w-40 h-40 bg-brand-400/5 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-20 right-20 w-60 h-60 bg-brand-300/5 rounded-full blur-3xl"></div>
     </div>
-  </div>
-</div>
+    
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div class="grid lg:grid-cols-4 md:grid-cols-2 gap-8">
+            
+            <!-- Company Info -->
+            <div class="lg:col-span-1">
+                <div class="flex items-center space-x-3 mb-6">
+                    <div class="w-12 h-12 bg-gradient-to-br from-brand-400 to-brand-600 rounded-xl flex items-center justify-center">
+                        <i class="fas fa-home text-white text-xl"></i>
+                    </div>
+                    <div>
+                        <div class="text-2xl font-bold bg-gradient-to-r from-white to-brand-300 bg-clip-text text-transparent">
+                            Mayor-K Prime
+                        </div>
+                        <div class="text-sm text-gray-400">Properties</div>
+                    </div>
+                </div>
+                
+                <p class="text-gray-300 mb-6 leading-relaxed">
+                    Your trusted partner in real estate. We help you find the perfect property and provide exceptional service every step of the way.
+                </p>
+                
+                <div class="space-y-3">
+                    <div class="flex items-center group">
+                        <i class="fas fa-map-marker-alt text-brand-400 mr-3 group-hover:animate-bounce-gentle"></i>
+                        <span class="text-gray-300 text-sm">123 Prime Street, Real Estate District, City 12345</span>
+                    </div>
+                    <div class="flex items-center group">
+                        <i class="fas fa-phone text-brand-400 mr-3 group-hover:animate-bounce-gentle"></i>
+                        <a href="tel:+15551234567" class="text-gray-300 hover:text-brand-300 transition-colors duration-200 text-sm">+1 (555) 123-4567</a>
+                    </div>
+                    <div class="flex items-center group">
+                        <i class="fas fa-envelope text-brand-400 mr-3 group-hover:animate-bounce-gentle"></i>
+                        <a href="mailto:info@mayorkprimeproperties.com" class="text-gray-300 hover:text-brand-300 transition-colors duration-200 text-sm">info@mayorkprimeproperties.com</a>
+                    </div>
+                </div>
+            </div>
 
-<!-- Bottom Bar -->
-<div class="border-t border-navy-700 mt-6 pt-4 text-center text-sm text-navy-200">
-  © <%= new Date().getFullYear() %> Mayor-K Prime Properties. All rights reserved.
-</div>
+            <!-- Quick Links -->
+            <div>
+                <h3 class="text-lg font-bold text-white mb-6 flex items-center">
+                    <i class="fas fa-link text-brand-400 mr-2"></i>
+                    Quick Links
+                </h3>
+                <ul class="space-y-3">
+                    <li><a href="/" class="text-gray-300 hover:text-brand-300 transition-all duration-200 hover:translate-x-1 transform inline-block">Home</a></li>
+                    <li><a href="/about" class="text-gray-300 hover:text-brand-300 transition-all duration-200 hover:translate-x-1 transform inline-block">About Us</a></li>
+                    <li><a href="/services" class="text-gray-300 hover:text-brand-300 transition-all duration-200 hover:translate-x-1 transform inline-block">Services</a></li>
+                    <li><a href="/projects" class="text-gray-300 hover:text-brand-300 transition-all duration-200 hover:translate-x-1 transform inline-block">Projects</a></li>
+                    <li><a href="/blog" class="text-gray-300 hover:text-brand-300 transition-all duration-200 hover:translate-x-1 transform inline-block">Blog</a></li>
+                    <li><a href="/contact" class="text-gray-300 hover:text-brand-300 transition-all duration-200 hover:translate-x-1 transform inline-block">Contact</a></li>
+                </ul>
+            </div>
+
+            <!-- Services -->
+            <div>
+                <h3 class="text-lg font-bold text-white mb-6 flex items-center">
+                    <i class="fas fa-concierge-bell text-brand-400 mr-2"></i>
+                    Our Services
+                </h3>
+                <ul class="space-y-3">
+                    <li><a href="/services/buying-assistance" class="text-gray-300 hover:text-brand-300 transition-all duration-200 hover:translate-x-1 transform inline-block">Buying Assistance</a></li>
+                    <li><a href="/services/selling-support" class="text-gray-300 hover:text-brand-300 transition-all duration-200 hover:translate-x-1 transform inline-block">Selling Support</a></li>
+                    <li><a href="/services/rentals" class="text-gray-300 hover:text-brand-300 transition-all duration-200 hover:translate-x-1 transform inline-block">Property Rentals</a></li>
+                    <li><a href="/services/management" class="text-gray-300 hover:text-brand-300 transition-all duration-200 hover:translate-x-1 transform inline-block">Property Management</a></li>
+                    <li><a href="/services/valuation" class="text-gray-300 hover:text-brand-300 transition-all duration-200 hover:translate-x-1 transform inline-block">Property Valuation</a></li>
+                    <li><a href="/services/investment" class="text-gray-300 hover:text-brand-300 transition-all duration-200 hover:translate-x-1 transform inline-block">Real Estate Investment</a></li>
+                </ul>
+            </div>
+
+            <!-- Newsletter -->
+            <div>
+                <h3 class="text-lg font-bold text-white mb-6 flex items-center">
+                    <i class="fas fa-envelope-open-text text-brand-400 mr-2"></i>
+                    Newsletter
+                </h3>
+                <p class="text-gray-300 mb-4 text-sm leading-relaxed">
+                    Subscribe to get the latest property updates, news, and exclusive offers.
+                </p>
+                <form class="flex flex-col space-y-3">
+                    <input type="email" placeholder="Enter your email" class="px-4 py-2 rounded-lg bg-navy-800 text-gray-200 placeholder-gray-500 border border-navy-700 focus:outline-none focus:ring-2 focus:ring-brand-400" />
+                    <button type="submit" class="px-4 py-2 rounded-lg bg-gradient-to-r from-brand-400 to-brand-600 text-white font-medium shadow-md hover:opacity-90 transition duration-200">
+                        Subscribe
+                    </button>
+                </form>
+                <div class="flex space-x-4 mt-6">
+                    <a href="#" class="text-gray-400 hover:text-brand-300 transition-colors duration-200"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-brand-300 transition-colors duration-200"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-brand-300 transition-colors duration-200"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-brand-300 transition-colors duration-200"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Bar -->
+        <div class="mt-16 pt-8 border-t border-navy-700 text-center text-sm text-gray-400">
+            © <span id="year"></span> Raji Mahmud 🔥🎗 All rights reserved.
+        </div>
+    </div>
+</footer>
+
+<script>
+    // Auto year
+    document.getElementById('year').textContent = new Date().getFullYear();
+</script>

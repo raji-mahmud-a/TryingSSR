@@ -1,79 +1,128 @@
-<%- include('partials/header') %>
-
 <!-- Hero Section -->
-<section class="hero-section bg-primary text-white py-5" style="min-height: 70vh; background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);">
-    <div class="container h-100">
-        <div class="row h-100 align-items-center">
-            <div class="col-lg-6">
-                <h1 class="display-4 fw-bold mb-4">
-                    <%= hero.title || 'Find Your Dream Property' %>
+<section class="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-navy-900 via-navy-800 to-brand-800 overflow-hidden">
+    <!-- Background Elements -->
+    <div class="absolute inset-0">
+        <div class="absolute top-20 left-10 w-72 h-72 bg-brand-400/10 rounded-full blur-3xl animate-float"></div>
+        <div class="absolute bottom-20 right-10 w-96 h-96 bg-brand-300/10 rounded-full blur-3xl animate-float" style="animation-delay: 2s;"></div>
+        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-navy-700/20 rounded-full blur-3xl"></div>
+    </div>
+
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+            <div class="text-white animate-slide-up">
+                <div class="inline-flex items-center px-4 py-2 rounded-full bg-brand-400/20 text-brand-300 text-sm font-medium mb-6 animate-pulse-gentle">
+                    <i class="fas fa-star mr-2"></i>
+                    Trusted by 1000+ Happy Clients
+                </div>
+                
+                <h1 class="text-5xl lg:text-7xl font-bold mb-6 leading-tight">
+                    Find Your
+                    <span class="bg-gradient-to-r from-brand-300 to-brand-500 bg-clip-text text-transparent animate-pulse-gentle">
+                        Dream Property
+                    </span>
                 </h1>
-                <p class="lead mb-4">
-                    <%= hero.subtitle || 'Discover premium properties and exceptional real estate services with Mayor-K Prime Properties.' %>
+                
+                <p class="text-xl text-gray-300 mb-8 leading-relaxed">
+                    <%= hero.subtitle || 'Discover premium properties and exceptional real estate services with Mayor-K Prime Properties. Your journey to the perfect home starts here.' %>
                 </p>
-                <div class="hero-buttons">
-                    <a href="/projects" class="btn btn-light btn-lg me-3">
-                        <i class="fas fa-search me-2"></i><%= hero.cta || 'Browse Properties' %>
+                
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="/projects" class="group bg-gradient-to-r from-brand-500 to-brand-600 text-white px-8 py-4 rounded-xl font-semibold hover:from-brand-600 hover:to-brand-700 transition-all duration-300 transform hover:scale-105 hover:shadow-xl flex items-center justify-center">
+                        <i class="fas fa-search mr-3 group-hover:animate-bounce-gentle"></i>
+                        <%= hero.cta || 'Browse Properties' %>
+                        <i class="fas fa-arrow-right ml-3 group-hover:translate-x-1 transition-transform duration-300"></i>
                     </a>
-                    <a href="/contact" class="btn btn-outline-light btn-lg">
-                        <i class="fas fa-phone me-2"></i>Get Consultation
+                    <a href="/contact" class="group border-2 border-white/30 text-white px-8 py-4 rounded-xl font-semibold hover:bg-white hover:text-navy-800 transition-all duration-300 transform hover:scale-105 flex items-center justify-center">
+                        <i class="fas fa-phone mr-3 group-hover:animate-bounce-gentle"></i>
+                        Get Consultation
                     </a>
+                </div>
+
+                <!-- Stats -->
+                <div class="grid grid-cols-3 gap-6 mt-12 pt-8 border-t border-white/20">
+                    <div class="text-center animate-scale-in" style="animation-delay: 0.2s;">
+                        <div class="text-3xl font-bold text-brand-300 mb-1">500+</div>
+                        <div class="text-sm text-gray-400">Properties Sold</div>
+                    </div>
+                    <div class="text-center animate-scale-in" style="animation-delay: 0.4s;">
+                        <div class="text-3xl font-bold text-brand-300 mb-1">5+</div>
+                        <div class="text-sm text-gray-400">Years Experience</div>
+                    </div>
+                    <div class="text-center animate-scale-in" style="animation-delay: 0.6s;">
+                        <div class="text-3xl font-bold text-brand-300 mb-1">4.9</div>
+                        <div class="text-sm text-gray-400">Client Rating</div>
+                    </div>
                 </div>
             </div>
-            <div class="col-lg-6 text-center">
-                <div class="hero-image">
-                    <img src="/images/hero-house.png" alt="Prime Properties" class="img-fluid" style="max-height: 400px;">
+            
+            <div class="relative animate-fade-in" style="animation-delay: 0.3s;">
+                <div class="relative z-10">
+                    <!-- Hero Image Placeholder -->
+                    <div class="relative bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm rounded-3xl p-8 border border-white/20">
+                        <div class="flex items-center justify-center h-96">
+                            <div class="text-center text-white/80">
+                                <i class="fas fa-home text-8xl mb-4 text-brand-400 animate-float"></i>
+                                <p class="text-lg font-medium">Premium Properties Await</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+                <!-- Floating elements -->
+                <div class="absolute -top-6 -right-6 w-24 h-24 bg-brand-400/20 rounded-2xl rotate-12 animate-bounce-gentle"></div>
+                <div class="absolute -bottom-6 -left-6 w-32 h-32 bg-brand-300/20 rounded-full animate-pulse-gentle"></div>
             </div>
         </div>
     </div>
 </section>
 
 <!-- Features Section -->
-<section class="features-section py-5">
-    <div class="container">
-        <div class="row text-center mb-5">
-            <div class="col-lg-8 mx-auto">
-                <h2 class="display-5 fw-bold mb-3">Why Choose Mayor-K Prime?</h2>
-                <p class="lead text-muted">We provide comprehensive real estate solutions with unmatched expertise and personalized service.</p>
+<section class="py-20 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16 animate-on-scroll">
+            <div class="inline-flex items-center px-4 py-2 rounded-full bg-brand-100 text-brand-700 text-sm font-medium mb-4">
+                <i class="fas fa-award mr-2"></i>
+                Why Choose Mayor-K Prime?
             </div>
+            <h2 class="text-4xl lg:text-5xl font-bold text-navy-800 mb-6">
+                Your Success is Our
+                <span class="bg-gradient-to-r from-brand-500 to-brand-600 bg-clip-text text-transparent">Mission</span>
+            </h2>
+            <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                We provide comprehensive real estate solutions with unmatched expertise and personalized service.
+            </p>
         </div>
-        <div class="row g-4">
-            <div class="col-lg-3 col-md-6">
-                <div class="feature-card text-center p-4">
-                    <div class="feature-icon mb-3">
-                        <i class="fas fa-medal fs-1 text-primary"></i>
-                    </div>
-                    <h5 class="fw-bold">Expert Team</h5>
-                    <p class="text-muted">Experienced professionals with deep market knowledge and proven track record.</p>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div class="group animate-on-scroll bg-white rounded-2xl p-8 hover:shadow-xl transition-all duration-500 hover:-translate-y-2">
+                <div class="w-16 h-16 bg-gradient-to-br from-brand-400 to-brand-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                    <i class="fas fa-medal text-2xl text-white"></i>
                 </div>
+                <h3 class="text-xl font-bold text-navy-800 mb-3">Expert Team</h3>
+                <p class="text-gray-600 leading-relaxed">Experienced professionals with deep market knowledge and proven track record in real estate excellence.</p>
             </div>
-            <div class="col-lg-3 col-md-6">
-                <div class="feature-card text-center p-4">
-                    <div class="feature-icon mb-3">
-                        <i class="fas fa-handshake fs-1 text-primary"></i>
-                    </div>
-                    <h5 class="fw-bold">Personalized Service</h5>
-                    <p class="text-muted">Tailored solutions that meet your specific needs and preferences.</p>
+
+            <div class="group animate-on-scroll bg-white rounded-2xl p-8 hover:shadow-xl transition-all duration-500 hover:-translate-y-2" style="animation-delay: 0.1s;">
+                <div class="w-16 h-16 bg-gradient-to-br from-brand-400 to-brand-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                    <i class="fas fa-handshake text-2xl text-white"></i>
                 </div>
+                <h3 class="text-xl font-bold text-navy-800 mb-3">Personalized Service</h3>
+                <p class="text-gray-600 leading-relaxed">Tailored solutions that meet your specific needs and preferences with dedicated one-on-one support.</p>
             </div>
-            <div class="col-lg-3 col-md-6">
-                <div class="feature-card text-center p-4">
-                    <div class="feature-icon mb-3">
-                        <i class="fas fa-chart-line fs-1 text-primary"></i>
-                    </div>
-                    <h5 class="fw-bold">Market Insights</h5>
-                    <p class="text-muted">Stay informed with the latest market trends and property valuations.</p>
+
+            <div class="group animate-on-scroll bg-white rounded-2xl p-8 hover:shadow-xl transition-all duration-500 hover:-translate-y-2" style="animation-delay: 0.2s;">
+                <div class="w-16 h-16 bg-gradient-to-br from-brand-400 to-brand-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                    <i class="fas fa-chart-line text-2xl text-white"></i>
                 </div>
+                <h3 class="text-xl font-bold text-navy-800 mb-3">Market Insights</h3>
+                <p class="text-gray-600 leading-relaxed">Stay informed with the latest market trends and property valuations for informed decisions.</p>
             </div>
-            <div class="col-lg-3 col-md-6">
-                <div class="feature-card text-center p-4">
-                    <div class="feature-icon mb-3">
-                        <i class="fas fa-shield-alt fs-1 text-primary"></i>
-                    </div>
-                    <h5 class="fw-bold">Trusted Process</h5>
-                    <p class="text-muted">Transparent, secure, and hassle-free real estate transactions.</p>
+
+            <div class="group animate-on-scroll bg-white rounded-2xl p-8 hover:shadow-xl transition-all duration-500 hover:-translate-y-2" style="animation-delay: 0.3s;">
+                <div class="w-16 h-16 bg-gradient-to-br from-brand-400 to-brand-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                    <i class="fas fa-shield-alt text-2xl text-white"></i>
                 </div>
+                <h3 class="text-xl font-bold text-navy-800 mb-3">Trusted Process</h3>
+                <p class="text-gray-600 leading-relaxed">Transparent, secure, and hassle-free real estate transactions with full legal protection.</p>
             </div>
         </div>
     </div>
@@ -81,38 +130,77 @@
 
 <!-- Featured Services -->
 <% if (featuredServices && featuredServices.length > 0) { %>
-<section class="services-section bg-light py-5">
-    <div class="container">
-        <div class="row text-center mb-5">
-            <div class="col-lg-8 mx-auto">
-                <h2 class="display-5 fw-bold mb-3">Our Services</h2>
-                <p class="lead text-muted">Comprehensive real estate solutions for all your property needs.</p>
+<section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16 animate-on-scroll">
+            <div class="inline-flex items-center px-4 py-2 rounded-full bg-navy-100 text-navy-700 text-sm font-medium mb-4">
+                <i class="fas fa-concierge-bell mr-2"></i>
+                Our Premium Services
             </div>
+            <h2 class="text-4xl lg:text-5xl font-bold text-navy-800 mb-6">
+                Comprehensive Real Estate
+                <span class="bg-gradient-to-r from-brand-500 to-brand-600 bg-clip-text text-transparent">Solutions</span>
+            </h2>
+            <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                From buying your first home to managing investment portfolios, we've got you covered.
+            </p>
         </div>
-        <div class="row g-4">
-            <% featuredServices.forEach(service => { %>
-            <div class="col-lg-4 col-md-6">
-                <div class="service-card card h-100 shadow-sm">
-                    <div class="card-img-container">
-                        <img src="<%= service.image %>" class="card-img-top" alt="<%= service.title %>" style="height: 200px; object-fit: cover;">
+
+        <div class="grid lg:grid-cols-3 gap-8">
+            <% featuredServices.forEach((service, index) => { %>
+            <div class="group animate-on-scroll bg-gradient-to-br from-gray-50 to-white rounded-3xl p-8 hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 border border-gray-100" style="animation-delay: <%= index * 0.1 %>s;">
+                <div class="relative mb-6">
+                    <div class="w-full h-48 bg-gradient-to-br from-brand-100 to-brand-200 rounded-2xl flex items-center justify-center group-hover:from-brand-200 group-hover:to-brand-300 transition-all duration-300">
+                        <i class="fas fa-<%= service.icon %> text-4xl text-brand-600"></i>
                     </div>
-                    <div class="card-body d-flex flex-column">
-                        <div class="service-icon mb-3">
-                            <i class="fas fa-<%= service.icon %> fs-3 text-primary"></i>
-                        </div>
-                        <h5 class="card-title fw-bold"><%= service.title %></h5>
-                        <p class="card-text text-muted flex-grow-1"><%= service.shortDescription || service.description.substring(0, 120) + '...' %></p>
-                        <a href="/services/<%= service.slug %>" class="btn btn-outline-primary mt-auto">
-                            Learn More <i class="fas fa-arrow-right ms-1"></i>
-                        </a>
+                    <div class="absolute -top-3 -right-3 w-8 h-8 bg-brand-500 rounded-full flex items-center justify-center">
+                        <i class="fas fa-star text-white text-xs"></i>
                     </div>
+                </div>
+                
+                <h3 class="text-2xl font-bold text-navy-800 mb-4 group-hover:text-brand-700 transition-colors duration-300">
+                    <%= service.title %>
+                </h3>
+                
+                <p class="text-gray-600 mb-6 leading-relaxed">
+                    <%= service.shortDescription || service.description.substring(0, 120) + '...' %>
+                </p>
+                
+                <% if (service.features && service.features.length > 0) { %>
+                <div class="mb-6">
+                    <h4 class="text-sm font-semibold text-navy-700 mb-3">Key Features:</h4>
+                    <ul class="space-y-2">
+                        <% service.features.slice(0, 3).forEach(feature => { %>
+                        <li class="flex items-center text-sm text-gray-600">
+                            <i class="fas fa-check-circle text-brand-500 mr-2"></i>
+                            <%= feature %>
+                        </li>
+                        <% }); %>
+                    </ul>
+                </div>
+                <% } %>
+                
+                <div class="flex items-center justify-between pt-4 border-t border-gray-100">
+                    <% if (service.price) { %>
+                    <div>
+                        <div class="text-sm text-gray-500">Starting from</div>
+                        <div class="font-bold text-brand-600"><%= service.price %></div>
+                    </div>
+                    <% } %>
+                    
+                    <a href="/services/<%= service.slug %>" class="group bg-gradient-to-r from-brand-500 to-brand-600 text-white px-6 py-3 rounded-xl font-semibold hover:from-brand-600 hover:to-brand-700 transition-all duration-300 transform hover:scale-105 flex items-center">
+                        Learn More
+                        <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform duration-300"></i>
+                    </a>
                 </div>
             </div>
             <% }); %>
         </div>
-        <div class="text-center mt-4">
-            <a href="/services" class="btn btn-primary btn-lg">
-                View All Services <i class="fas fa-arrow-right ms-2"></i>
+        
+        <div class="text-center mt-12 animate-on-scroll">
+            <a href="/services" class="group bg-navy-800 text-white px-8 py-4 rounded-xl font-semibold hover:bg-navy-900 transition-all duration-300 transform hover:scale-105 inline-flex items-center">
+                View All Services
+                <i class="fas fa-arrow-right ml-3 group-hover:translate-x-1 transition-transform duration-300"></i>
             </a>
         </div>
     </div>
@@ -121,81 +209,112 @@
 
 <!-- Featured Projects -->
 <% if (featuredProjects && featuredProjects.length > 0) { %>
-<section class="projects-section py-5">
-    <div class="container">
-        <div class="row text-center mb-5">
-            <div class="col-lg-8 mx-auto">
-                <h2 class="display-5 fw-bold mb-3">Featured Properties</h2>
-                <p class="lead text-muted">Discover our handpicked selection of premium properties.</p>
+<section class="py-20 bg-gradient-to-br from-gray-50 to-brand-50/30">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16 animate-on-scroll">
+            <div class="inline-flex items-center px-4 py-2 rounded-full bg-brand-100 text-brand-700 text-sm font-medium mb-4">
+                <i class="fas fa-building mr-2"></i>
+                Featured Properties
             </div>
+            <h2 class="text-4xl lg:text-5xl font-bold text-navy-800 mb-6">
+                Handpicked Premium
+                <span class="bg-gradient-to-r from-brand-500 to-brand-600 bg-clip-text text-transparent">Properties</span>
+            </h2>
+            <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                Discover our carefully selected collection of exceptional properties that define luxury living.
+            </p>
         </div>
-        <div class="row g-4">
-            <% featuredProjects.forEach(project => { %>
+
+        <div class="grid lg:grid-cols-2 xl:grid-cols-4 gap-8">
+            <% featuredProjects.forEach((project, index) => { %>
                 <% const primaryImage = project.getPrimaryImage(); %>
-            <div class="col-lg-6 col-xl-3">
-                <div class="project-card card h-100 shadow-sm">
-                    <div class="card-img-container position-relative">
-                        <img src="<%= primaryImage.url %>" class="card-img-top" alt="<%= project.title %>" style="height: 250px; object-fit: cover;">
-                        <div class="project-badges position-absolute top-0 start-0 m-2">
-                            <% if (project.featured) { %>
-                            <span class="badge bg-warning text-dark">Featured</span>
-                            <% } %>
-                            <span class="badge bg-primary"><%= project.status.charAt(0).toUpperCase() + project.status.slice(1) %></span>
-                        </div>
-                        <div class="project-price position-absolute bottom-0 end-0 m-2">
-                            <span class="badge bg-dark fs-6"><%= project.getFormattedPrice() %></span>
-                        </div>
+            <div class="group animate-on-scroll bg-white rounded-3xl overflow-hidden hover:shadow-2xl transition-all duration-500 hover:-translate-y-3" style="animation-delay: <%= index * 0.1 %>s;">
+                <div class="relative h-64 overflow-hidden">
+                    <div class="w-full h-full bg-gradient-to-br from-brand-200 to-brand-300 flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
+                        <i class="fas fa-building text-4xl text-brand-600"></i>
                     </div>
-                    <div class="card-body d-flex flex-column">
-                        <h5 class="card-title fw-bold"><%= project.title %></h5>
-                        <p class="card-text text-muted small mb-2">
-                            <i class="fas fa-map-marker-alt me-1"></i>
-                            <%= project.location.city || 'Prime Location' %>
-                        </p>
-                        <p class="card-text flex-grow-1"><%= project.shortDescription || project.description.substring(0, 100) + '...' %></p>
-                        
-                        <% if (project.specifications) { %>
-                        <div class="project-specs mb-3">
-                            <div class="row text-center">
-                                <% if (project.specifications.bedrooms) { %>
-                                <div class="col-4">
-                                    <small class="text-muted">
-                                        <i class="fas fa-bed"></i><br>
-                                        <%= project.specifications.bedrooms %> Beds
-                                    </small>
-                                </div>
-                                <% } %>
-                                <% if (project.specifications.bathrooms) { %>
-                                <div class="col-4">
-                                    <small class="text-muted">
-                                        <i class="fas fa-bath"></i><br>
-                                        <%= project.specifications.bathrooms %> Baths
-                                    </small>
-                                </div>
-                                <% } %>
-                                <% if (project.specifications.area) { %>
-                                <div class="col-4">
-                                    <small class="text-muted">
-                                        <i class="fas fa-ruler-combined"></i><br>
-                                        <%= project.specifications.area %>
-                                    </small>
-                                </div>
-                                <% } %>
-                            </div>
+                    
+                    <!-- Badges -->
+                    <div class="absolute top-4 left-4 flex flex-col gap-2">
+                        <% if (project.featured) { %>
+                        <span class="bg-gradient-to-r from-amber-400 to-amber-500 text-white text-xs font-semibold px-3 py-1 rounded-full flex items-center">
+                            <i class="fas fa-star mr-1"></i>Featured
+                        </span>
+                        <% } %>
+                        <span class="bg-brand-500 text-white text-xs font-semibold px-3 py-1 rounded-full capitalize">
+                            <%= project.status %>
+                        </span>
+                    </div>
+                    
+                    <!-- Price -->
+                    <div class="absolute bottom-4 right-4">
+                        <span class="bg-navy-800/90 text-white text-sm font-bold px-4 py-2 rounded-xl backdrop-blur-sm">
+                            <%= project.getFormattedPrice() %>
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="p-6">
+                    <div class="flex items-center justify-between mb-3">
+                        <h3 class="text-xl font-bold text-navy-800 group-hover:text-brand-700 transition-colors duration-300">
+                            <%= project.title %>
+                        </h3>
+                    </div>
+                    
+                    <% if (project.location && project.location.city) { %>
+                    <div class="flex items-center text-gray-600 mb-4">
+                        <i class="fas fa-map-marker-alt text-brand-500 mr-2"></i>
+                        <span class="text-sm"><%= project.location.city %></span>
+                    </div>
+                    <% } %>
+                    
+                    <p class="text-gray-600 text-sm mb-4 leading-relaxed">
+                        <%= project.shortDescription || project.description.substring(0, 100) + '...' %>
+                    </p>
+                    
+                    <% if (project.specifications && (project.specifications.bedrooms || project.specifications.bathrooms || project.specifications.area)) { %>
+                    <div class="grid grid-cols-3 gap-4 p-4 bg-gray-50 rounded-xl mb-4">
+                        <% if (project.specifications.bedrooms) { %>
+                        <div class="text-center">
+                            <i class="fas fa-bed text-brand-500 mb-1"></i>
+                            <div class="text-sm font-semibold text-navy-800"><%= project.specifications.bedrooms %></div>
+                            <div class="text-xs text-gray-600">Beds</div>
                         </div>
                         <% } %>
-                        
-                        <a href="/projects/<%= project.slug %>" class="btn btn-primary mt-auto">
-                            View Details <i class="fas fa-arrow-right ms-1"></i>
+                        <% if (project.specifications.bathrooms) { %>
+                        <div class="text-center">
+                            <i class="fas fa-bath text-brand-500 mb-1"></i>
+                            <div class="text-sm font-semibold text-navy-800"><%= project.specifications.bathrooms %></div>
+                            <div class="text-xs text-gray-600">Baths</div>
+                        </div>
+                        <% } %>
+                        <% if (project.specifications.area) { %>
+                        <div class="text-center">
+                            <i class="fas fa-ruler-combined text-brand-500 mb-1"></i>
+                            <div class="text-sm font-semibold text-navy-800"><%= project.specifications.area.split(' ')[0] %></div>
+                            <div class="text-xs text-gray-600">Sq Ft</div>
+                        </div>
+                        <% } %>
+                    </div>
+                    <% } %>
+                    
+                    <div class="flex gap-2">
+                        <a href="/projects/<%= project.slug %>" class="flex-1 group bg-gradient-to-r from-brand-500 to-brand-600 text-white py-3 rounded-xl font-semibold hover:from-brand-600 hover:to-brand-700 transition-all duration-300 transform hover:scale-105 text-center">
+                            <i class="fas fa-eye mr-2"></i>View Details
+                        </a>
+                        <a href="/contact?property=<%= project.slug %>" class="bg-navy-100 text-navy-800 p-3 rounded-xl hover:bg-navy-200 transition-colors duration-300">
+                            <i class="fas fa-envelope"></i>
                         </a>
                     </div>
                 </div>
             </div>
             <% }); %>
         </div>
-        <div class="text-center mt-4">
-            <a href="/projects" class="btn btn-outline-primary btn-lg">
-                View All Properties <i class="fas fa-arrow-right ms-2"></i>
+        
+        <div class="text-center mt-12 animate-on-scroll">
+            <a href="/projects" class="group bg-navy-800 text-white px-8 py-4 rounded-xl font-semibold hover:bg-navy-900 transition-all duration-300 transform hover:scale-105 inline-flex items-center">
+                View All Properties
+                <i class="fas fa-arrow-right ml-3 group-hover:translate-x-1 transition-transform duration-300"></i>
             </a>
         </div>
     </div>
@@ -203,20 +322,40 @@
 <% } %>
 
 <!-- CTA Section -->
-<section class="cta-section bg-primary text-white py-5">
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="col-lg-8">
-                <h3 class="fw-bold mb-2">Ready to Find Your Perfect Property?</h3>
-                <p class="mb-0 lead">Let our experts help you navigate the real estate market and find your dream home today.</p>
+<section class="py-20 bg-gradient-to-br from-navy-800 to-navy-900 relative overflow-hidden">
+    <!-- Background Elements -->
+    <div class="absolute inset-0">
+        <div class="absolute top-10 right-10 w-64 h-64 bg-brand-400/10 rounded-full blur-3xl animate-float"></div>
+        <div class="absolute bottom-10 left-10 w-80 h-80 bg-brand-300/10 rounded-full blur-3xl animate-float" style="animation-delay: 3s;"></div>
+    </div>
+    
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center animate-on-scroll">
+            <div class="inline-flex items-center px-4 py-2 rounded-full bg-brand-400/20 text-brand-300 text-sm font-medium mb-6">
+                <i class="fas fa-rocket mr-2"></i>
+                Ready to Get Started?
             </div>
-            <div class="col-lg-4 text-lg-end">
-                <a href="/contact" class="btn btn-light btn-lg">
-                    <i class="fas fa-phone me-2"></i>Contact Us Now
+            
+            <h2 class="text-4xl lg:text-5xl font-bold text-white mb-6">
+                Ready to Find Your
+                <span class="bg-gradient-to-r from-brand-300 to-brand-500 bg-clip-text text-transparent">Perfect Property?</span>
+            </h2>
+            
+            <p class="text-xl text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed">
+                Let our experts help you navigate the real estate market and find your dream home today. Your perfect property is just one call away.
+            </p>
+            
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="/contact" class="group bg-gradient-to-r from-brand-500 to-brand-600 text-white px-8 py-4 rounded-xl font-semibold hover:from-brand-600 hover:to-brand-700 transition-all duration-300 transform hover:scale-105 hover:shadow-xl flex items-center justify-center">
+                    <i class="fas fa-phone mr-3 group-hover:animate-bounce-gentle"></i>
+                    Contact Us Now
+                    <i class="fas fa-arrow-right ml-3 group-hover:translate-x-1 transition-transform duration-300"></i>
+                </a>
+                <a href="/projects" class="group border-2 border-white/30 text-white px-8 py-4 rounded-xl font-semibold hover:bg-white hover:text-navy-800 transition-all duration-300 transform hover:scale-105 flex items-center justify-center">
+                    <i class="fas fa-search mr-3 group-hover:animate-bounce-gentle"></i>
+                    Browse Properties
                 </a>
             </div>
         </div>
     </div>
 </section>
-
-<%- include('partials/footer') %>

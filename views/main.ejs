@@ -107,28 +107,20 @@
 <body class="font-inter bg-gray-50 text-navy-800 flex flex-col min-h-screen">
 
   <!-- Header -->
-  <header class="sticky top-0 z-50 shadow bg-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <%- include('./partials/header') %>
-    </div>
-  </header>
+     <%- include('./partials/header') %>
 
   <!-- Main Content -->
   <main class="flex-1">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <div class="max-w-7xl">
       <%- body %>
     </div>
   </main>
 
   <!-- Footer -->
-  <footer class="bg-navy-800 text-white mt-auto">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-      <%- include('./partials/footer') %>
-    </div>
-  </footer>
+    <%- include('./partials/footer') %>
 
   <!-- Back to Top -->
-  <button id="backToTop" class="fixed bottom-6 right-6 bg-brand-500 text-white p-3 rounded-full shadow-lg transition-opacity duration-300 opacity-0 pointer-events-none hover:bg-brand-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-400">
+  <button id="backToTop" class="fixed bottom-6 right-6 bg-brand-500 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-lg transition-all duration-300 opacity-0 pointer-events-none hover:bg-brand-600 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-400 animate-bounce-gentle">
     <i class="fas fa-arrow-up"></i>
   </button>
 
