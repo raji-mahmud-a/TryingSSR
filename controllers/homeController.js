@@ -15,6 +15,9 @@ const homeController = {
         .limit(4)
         .sort({ createdAt: -1 });
 
+      console.log('Homepage - Services found:', featuredServices.length); // Debug log
+      console.log('Homepage - Projects found:', featuredProjects.length); // Debug log
+
       res.render('index', {
         title: 'Mayor-K Prime Properties - Your Trusted Real Estate Partner',
         currentPage: 'home',

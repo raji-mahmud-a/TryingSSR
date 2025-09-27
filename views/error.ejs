@@ -1,43 +1,41 @@
-<%- include('partials/header') %>
 
-<section class="error-page py-5" style="min-height: 60vh;">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 mx-auto text-center">
-                <div class="error-content">
-                    <div class="error-icon mb-4">
-                        <i class="fas fa-exclamation-triangle fs-1 text-warning"></i>
-                    </div>
-                    <h1 class="fw-bold mb-3">Something Went Wrong</h1>
-                    <p class="lead text-muted mb-4">We're experiencing a temporary issue. Please try again later.</p>
-                    
-                    <% if (typeof errorMessage !== 'undefined' && errorMessage) { %>
-                    <div class="alert alert-danger">
-                        <%= errorMessage %>
-                    </div>
-                    <% } %>
-                    
-                    <% if (typeof error !== 'undefined' && error.stack) { %>
-                    <div class="error-details mt-4">
-                        <details>
-                            <summary class="btn btn-outline-secondary btn-sm">Technical Details</summary>
-                            <pre class="text-start mt-3 p-3 bg-light border rounded"><%= error.stack %></pre>
-                        </details>
-                    </div>
-                    <% } %>
-                    
-                    <div class="error-actions mt-4">
-                        <a href="javascript:history.back()" class="btn btn-secondary btn-lg me-3">
-                            <i class="fas fa-arrow-left me-2"></i>Go Back
-                        </a>
-                        <a href="/" class="btn btn-primary btn-lg">
-                            <i class="fas fa-home me-2"></i>Go Home
-                        </a>
-                    </div>
+<section class="min-h-[60vh] py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center">
+            <div class="mb-8">
+                <div class="text-yellow-500 text-6xl mb-6">
+                    <i class="fas fa-exclamation-triangle animate-bounce-gentle"></i>
+                </div>
+                <h1 class="text-3xl font-bold text-navy-800 mb-4">Something Went Wrong</h1>
+                <p class="text-xl text-gray-600 mb-8">We're experiencing a temporary issue. Please try again later.</p>
+                
+                <% if (typeof errorMessage !== 'undefined' && errorMessage) { %>
+                <div class="bg-red-50 text-red-700 p-4 rounded-lg max-w-2xl mx-auto mb-8">
+                    <%= errorMessage %>
+                </div>
+                <% } %>
+                
+                <% if (typeof error !== 'undefined' && error.stack) { %>
+                <div class="mt-8 max-w-3xl mx-auto">
+                    <details class="bg-gray-50 rounded-lg">
+                        <summary class="cursor-pointer px-4 py-2 text-sm text-gray-600 hover:text-gray-800">
+                            Technical Details
+                        </summary>
+                        <pre class="text-left mt-2 p-4 bg-gray-100 border rounded-lg overflow-x-auto text-sm text-gray-700"><%= error.stack %></pre>
+                    </details>
+                </div>
+                <% } %>
+                
+                <div class="flex flex-col sm:flex-row gap-4 justify-center mt-8">
+                    <button onclick="history.back()" class="inline-flex items-center justify-center px-6 py-3 rounded-lg bg-gray-500 text-white hover:bg-gray-600 transition-colors">
+                        <i class="fas fa-arrow-left mr-2"></i>Go Back
+                    </button>
+                    <a href="/" class="inline-flex items-center justify-center px-6 py-3 rounded-lg bg-brand-500 text-white hover:bg-brand-600 transition-colors">
+                        <i class="fas fa-home mr-2"></i>Go Home
+                    </a>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<%- include('partials/footer') %>

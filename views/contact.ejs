@@ -1,69 +1,88 @@
-<%- include('partials/header') %>
 
 <!-- Page Header -->
-<section class="page-header bg-light py-5">
-    <div class="container">
-        <div class="row text-center">
-            <div class="col-lg-8 mx-auto">
-                <h1 class="display-4 fw-bold mb-3"><%= pageHeader.title %></h1>
-                <p class="lead text-muted"><%= pageHeader.subtitle %></p>
-                <nav aria-label="breadcrumb" class="mt-4">
-                    <ol class="breadcrumb justify-content-center">
-                        <li class="breadcrumb-item"><a href="/" class="text-decoration-none">Home</a></li>
-                        <li class="breadcrumb-item active">Contact</li>
-                    </ol>
-                </nav>
-            </div>
+<section class="relative bg-gradient-to-br from-gray-50 to-gray-100 py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center">
+            <h1 class="text-4xl md:text-5xl font-bold text-navy-800 mb-4"><%= pageHeader.title %></h1>
+            <p class="text-xl text-gray-600 max-w-3xl mx-auto"><%= pageHeader.subtitle %></p>
+            <nav class="mt-6">
+                <ol class="flex justify-center items-center space-x-2 text-sm">
+                    <li><a href="/" class="text-brand-600 hover:text-brand-700">Home</a></li>
+                    <li><span class="text-gray-400">/</span></li>
+                    <li class="text-gray-600">Contact</li>
+                </ol>
+            </nav>
         </div>
     </div>
 </section>
 
 <!-- Success/Error Messages -->
 <% if (success) { %>
-<div class="alert alert-success alert-dismissible fade show" role="alert">
-    <div class="container">
-        <i class="fas fa-check-circle me-2"></i>
-        <strong>Thank you!</strong> Your message has been sent successfully. We'll get back to you within 24 hours.
-        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+<div class="bg-green-50 border-l-4 border-green-500 p-4">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center">
+        <i class="fas fa-check-circle text-green-500 mr-3"></i>
+        <p class="text-green-700">
+            <strong>Thank you!</strong> Your message has been sent successfully. We'll get back to you within 24 hours.
+        </p>
+        <button type="button" class="ml-auto text-green-500 hover:text-green-700" onclick="this.parentElement.parentElement.remove()">
+            <i class="fas fa-times"></i>
+        </button>
     </div>
 </div>
 <% } %>
 
 <% if (error) { %>
-<div class="alert alert-danger alert-dismissible fade show" role="alert">
-    <div class="container">
-        <i class="fas fa-exclamation-circle me-2"></i>
-        <strong>Error!</strong> There was a problem sending your message. Please try again or contact us directly.
-        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+<div class="bg-red-50 border-l-4 border-red-500 p-4">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center">
+        <i class="fas fa-exclamation-circle text-red-500 mr-3"></i>
+        <p class="text-red-700">
+            <strong>Error!</strong> There was a problem sending your message. Please try again or contact us directly.
+        </p>
+        <button type="button" class="ml-auto text-red-500 hover:text-red-700" onclick="this.parentElement.parentElement.remove()">
+            <i class="fas fa-times"></i>
+        </button>
     </div>
 </div>
 <% } %>
 
 <!-- Contact Section -->
-<section class="contact-section py-5">
-    <div class="container">
-        <div class="row g-5">
+<section class="py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid lg:grid-cols-3 gap-8">
             <!-- Contact Form -->
-            <div class="col-lg-8">
-                <div class="contact-form bg-white p-4 rounded shadow-sm">
-                    <h3 class="fw-bold mb-4">Send us a Message</h3>
-                    <form action="/contact" method="POST" id="contactForm">
-                        <div class="row g-3">
-                            <div class="col-md-6">
-                                <label for="name" class="form-label">Full Name *</label>
-                                <input type="text" class="form-control" id="name" name="name" required>
+            <div class="lg:col-span-2">
+                <div class="bg-white rounded-2xl shadow-lg p-8">
+                    <h3 class="text-2xl font-bold text-navy-800 mb-6">Send us a Message</h3>
+                    <form action="/contact" method="POST" id="contactForm" class="space-y-6">
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Full Name *</label>
+                                <input type="text" 
+                                       id="name" 
+                                       name="name" 
+                                       required
+                                       class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500">
                             </div>
-                            <div class="col-md-6">
-                                <label for="email" class="form-label">Email Address *</label>
-                                <input type="email" class="form-control" id="email" name="email" required>
+                            <div>
+                                <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email Address *</label>
+                                <input type="email" 
+                                       id="email" 
+                                       name="email" 
+                                       required
+                                       class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500">
                             </div>
-                            <div class="col-md-6">
-                                <label for="phone" class="form-label">Phone Number</label>
-                                <input type="tel" class="form-control" id="phone" name="phone">
+                            <div>
+                                <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">Phone Number</label>
+                                <input type="tel" 
+                                       id="phone" 
+                                       name="phone"
+                                       class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500">
                             </div>
-                            <div class="col-md-6">
-                                <label for="subject" class="form-label">Subject</label>
-                                <select class="form-select" id="subject" name="subject">
+                            <div>
+                                <label for="subject" class="block text-sm font-medium text-gray-700 mb-1">Subject</label>
+                                <select id="subject" 
+                                        name="subject"
+                                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500">
                                     <option value="General Inquiry">General Inquiry</option>
                                     <option value="Property Inquiry">Property Inquiry</option>
                                     <option value="Buying">Buying Property</option>
@@ -74,16 +93,25 @@
                                     <option value="Partnership">Partnership</option>
                                 </select>
                             </div>
-                            <div class="col-12">
-                                <label for="message" class="form-label">Message *</label>
-                                <textarea class="form-control" id="message" name="message" rows="5" required placeholder="Tell us about your real estate needs..."></textarea>
-                                <div class="form-text">Minimum 10 characters required.</div>
-                            </div>
-                            
-                            <!-- Property Interest -->
-                            <div class="col-md-6">
-                                <label for="propertyInterest" class="form-label">Property Type of Interest</label>
-                                <select class="form-select" id="propertyInterest" name="propertyInterest">
+                        </div>
+
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Message *</label>
+                            <textarea id="message" 
+                                      name="message" 
+                                      rows="5" 
+                                      required
+                                      placeholder="Tell us about your real estate needs..."
+                                      class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500"></textarea>
+                            <p class="text-sm text-gray-500 mt-1">Minimum 10 characters required.</p>
+                        </div>
+
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="propertyInterest" class="block text-sm font-medium text-gray-700 mb-1">Property Type of Interest</label>
+                                <select id="propertyInterest" 
+                                        name="propertyInterest"
+                                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500">
                                     <option value="">Select property type</option>
                                     <option value="residential">Residential</option>
                                     <option value="commercial">Commercial</option>
@@ -97,170 +125,178 @@
                                     <option value="land">Land</option>
                                 </select>
                             </div>
-                            
-                            <!-- Preferred Contact Method -->
-                            <div class="col-md-6">
-                                <label for="preferredContact" class="form-label">Preferred Contact Method</label>
-                                <select class="form-select" id="preferredContact" name="preferredContact">
+                            <div>
+                                <label for="preferredContact" class="block text-sm font-medium text-gray-700 mb-1">Preferred Contact Method</label>
+                                <select id="preferredContact" 
+                                        name="preferredContact"
+                                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500">
                                     <option value="either">Either Email or Phone</option>
                                     <option value="email">Email Only</option>
                                     <option value="phone">Phone Only</option>
                                 </select>
                             </div>
-                            
-                            <div class="col-12">
-                                <button type="submit" class="btn btn-primary btn-lg">
-                                    <i class="fas fa-paper-plane me-2"></i>Send Message
-                                </button>
-                                <button type="reset" class="btn btn-outline-secondary btn-lg ms-2">
-                                    <i class="fas fa-redo me-2"></i>Reset Form
-                                </button>
-                            </div>
+                        </div>
+
+                        <div class="flex flex-col sm:flex-row gap-4">
+                            <button type="submit" 
+                                    class="inline-flex items-center justify-center px-6 py-3 bg-brand-500 text-white rounded-lg hover:bg-brand-600 transition-colors">
+                                <i class="fas fa-paper-plane mr-2"></i>
+                                Send Message
+                            </button>
+                            <button type="reset" 
+                                    class="inline-flex items-center justify-center px-6 py-3 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors">
+                                <i class="fas fa-redo mr-2"></i>
+                                Reset Form
+                            </button>
                         </div>
                     </form>
                 </div>
             </div>
-            
+
             <!-- Contact Information -->
-            <div class="col-lg-4">
-                <div class="contact-info">
-                    <!-- Office Information -->
-                    <div class="info-card bg-primary text-white p-4 rounded mb-4">
-                        <h4 class="fw-bold mb-3">
-                            <i class="fas fa-building me-2"></i>Our Office
-                        </h4>
-                        <div class="info-item mb-3">
-                            <i class="fas fa-map-marker-alt me-2"></i>
+            <div class="space-y-6">
+                <!-- Office Information Card -->
+                <div class="bg-gradient-to-br from-navy-800 to-navy-900 rounded-2xl p-8 text-white">
+                    <h4 class="text-xl font-bold mb-6 flex items-center">
+                        <i class="fas fa-building mr-3"></i>
+                        Our Office
+                    </h4>
+                    <div class="space-y-4">
+                        <div class="flex items-center">
+                            <i class="fas fa-map-marker-alt text-brand-400 mr-3"></i>
                             <div>
-                                <strong>Address:</strong><br>
-                                <%= contactInfo.address %>
+                                <strong class="block">Address:</strong>
+                                <span class="text-gray-300"><%= contactInfo.address %></span>
                             </div>
                         </div>
-                        <div class="info-item mb-3">
-                            <i class="fas fa-phone me-2"></i>
+                        <div class="flex items-center">
+                            <i class="fas fa-phone text-brand-400 mr-3"></i>
                             <div>
-                                <strong>Phone:</strong><br>
-                                <a href="tel:<%= contactInfo.phone.replace(/\D/g, '') %>" class="text-white">
+                                <strong class="block">Phone:</strong>
+                                <a href="tel:<%= contactInfo.phone.replace(/\D/g, '') %>" 
+                                   class="text-gray-300 hover:text-brand-400 transition-colors">
                                     <%= contactInfo.phone %>
                                 </a>
                             </div>
                         </div>
-                        <div class="info-item">
-                            <i class="fas fa-envelope me-2"></i>
+                        <div class="flex items-center">
+                            <i class="fas fa-envelope text-brand-400 mr-3"></i>
                             <div>
-                                <strong>Email:</strong><br>
-                                <a href="mailto:<%= contactInfo.email %>" class="text-white">
+                                <strong class="block">Email:</strong>
+                                <a href="mailto:<%= contactInfo.email %>" 
+                                   class="text-gray-300 hover:text-brand-400 transition-colors">
                                     <%= contactInfo.email %>
                                 </a>
                             </div>
                         </div>
                     </div>
-                    
-                    <!-- Business Hours -->
-                    <div class="info-card bg-white p-4 rounded shadow-sm mb-4">
-                        <h5 class="fw-bold mb-3">
-                            <i class="fas fa-clock me-2 text-primary"></i>Business Hours
-                        </h5>
-                        <div class="hours-list">
-                            <div class="d-flex justify-content-between mb-2">
-                                <span>Monday - Friday:</span>
-                                <span class="fw-bold"><%= contactInfo.hours.weekdays %></span>
-                            </div>
-                            <div class="d-flex justify-content-between mb-2">
-                                <span>Saturday:</span>
-                                <span class="fw-bold"><%= contactInfo.hours.saturday %></span>
-                            </div>
-                            <div class="d-flex justify-content-between">
-                                <span>Sunday:</span>
-                                <span class="fw-bold"><%= contactInfo.hours.sunday %></span>
-                            </div>
+                </div>
+
+                <!-- Business Hours Card -->
+                <div class="bg-white rounded-2xl p-8 shadow-lg">
+                    <h4 class="text-xl font-bold text-navy-800 mb-6 flex items-center">
+                        <i class="fas fa-clock text-brand-500 mr-3"></i>
+                        Business Hours
+                    </h4>
+                    <div class="space-y-3">
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Monday - Friday:</span>
+                            <span class="font-medium text-navy-800"><%= contactInfo.hours.weekdays %></span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Saturday:</span>
+                            <span class="font-medium text-navy-800"><%= contactInfo.hours.saturday %></span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Sunday:</span>
+                            <span class="font-medium text-navy-800"><%= contactInfo.hours.sunday %></span>
                         </div>
                     </div>
-                    
-                    <!-- Quick Actions -->
-                    <div class="quick-actions">
-                        <h5 class="fw-bold mb-3">Quick Actions</h5>
-                        <div class="d-grid gap-2">
-                            <a href="tel:<%= contactInfo.phone.replace(/\D/g, '') %>" class="btn btn-outline-primary">
-                                <i class="fas fa-phone me-2"></i>Call Now
-                            </a>
-                            <a href="mailto:<%= contactInfo.email %>" class="btn btn-outline-primary">
-                                <i class="fas fa-envelope me-2"></i>Email Us
-                            </a>
-                            <a href="/services" class="btn btn-outline-primary">
-                                <i class="fas fa-list me-2"></i>View Services
-                            </a>
-                            <a href="/projects" class="btn btn-outline-primary">
-                                <i class="fas fa-building me-2"></i>Browse Properties
-                            </a>
-                        </div>
-                    </div>
+                </div>
+
+                <!-- Quick Actions -->
+                <div class="space-y-3">
+                    <h4 class="text-xl font-bold text-navy-800 mb-4">Quick Actions</h4>
+                    <a href="tel:<%= contactInfo.phone.replace(/\D/g, '') %>" 
+                       class="flex items-center justify-center px-6 py-3 bg-brand-500 text-white rounded-lg hover:bg-brand-600 transition-colors w-full">
+                        <i class="fas fa-phone mr-2"></i>
+                        Call Now
+                    </a>
+                    <a href="mailto:<%= contactInfo.email %>" 
+                       class="flex items-center justify-center px-6 py-3 border border-brand-500 text-brand-500 rounded-lg hover:bg-brand-50 transition-colors w-full">
+                        <i class="fas fa-envelope mr-2"></i>
+                        Email Us
+                    </a>
+                    <a href="/services" 
+                       class="flex items-center justify-center px-6 py-3 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors w-full">
+                        <i class="fas fa-list mr-2"></i>
+                        View Services
+                    </a>
+                    <a href="/projects" 
+                       class="flex items-center justify-center px-6 py-3 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors w-full">
+                        <i class="fas fa-building mr-2"></i>
+                        Browse Properties
+                    </a>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- Map Section (Placeholder) -->
-<section class="map-section">
-    <div class="container-fluid px-0">
-        <div class="map-placeholder bg-light d-flex align-items-center justify-content-center" style="height: 400px;">
-            <div class="text-center text-muted">
-                <i class="fas fa-map-marked-alt fs-1 mb-3"></i>
-                <h5>Interactive Map Coming Soon</h5>
-                <p>Find us easily with our interactive map feature.</p>
-            </div>
+<!-- Map Section -->
+<section class="bg-gray-50">
+    <div class="w-full h-[400px] bg-gray-100 flex items-center justify-center">
+        <div class="text-center text-gray-500">
+            <i class="fas fa-map-marked-alt text-4xl mb-4"></i>
+            <h5 class="text-xl font-bold mb-2">Interactive Map Coming Soon</h5>
+            <p>Find us easily with our interactive map feature.</p>
         </div>
     </div>
 </section>
 
 <!-- FAQ Section -->
-<section class="faq-section py-5 bg-light">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 mx-auto text-center mb-5">
-                <h2 class="display-5 fw-bold mb-3">Frequently Asked Questions</h2>
-                <p class="lead text-muted">Quick answers to common questions about our services.</p>
-            </div>
+<section class="py-16 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold text-navy-800 mb-4">Frequently Asked Questions</h2>
+            <p class="text-xl text-gray-600">Quick answers to common questions about our services.</p>
         </div>
-        <div class="row">
-            <div class="col-lg-8 mx-auto">
-                <div class="accordion" id="faqAccordion">
-                    <div class="accordion-item">
-                        <h2 class="accordion-header">
-                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
-                                How quickly do you respond to inquiries?
-                            </button>
-                        </h2>
-                        <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
-                            <div class="accordion-body">
-                                We typically respond to all inquiries within 24 hours during business days. For urgent matters, please call us directly.
-                            </div>
+
+        <div class="max-w-3xl mx-auto">
+            <div class="space-y-4">
+                <div class="bg-white rounded-lg shadow">
+                    <button class="w-full text-left px-6 py-4 focus:outline-none" onclick="toggleFAQ(this)">
+                        <div class="flex items-center justify-between">
+                            <span class="font-medium">How quickly do you respond to inquiries?</span>
+                            <i class="fas fa-chevron-down text-gray-400 transform transition-transform"></i>
                         </div>
+                    </button>
+                    <div class="hidden px-6 pb-4 text-gray-600">
+                        We typically respond to all inquiries within 24 hours during business days. For urgent matters, please call us directly.
                     </div>
-                    <div class="accordion-item">
-                        <h2 class="accordion-header">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
-                                Do you charge for initial consultations?
-                            </button>
-                        </h2>
-                        <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                            <div class="accordion-body">
-                                No, our initial consultation is completely free. We'll assess your needs and provide recommendations at no cost.
-                            </div>
+                </div>
+
+                <div class="bg-white rounded-lg shadow">
+                    <button class="w-full text-left px-6 py-4 focus:outline-none" onclick="toggleFAQ(this)">
+                        <div class="flex items-center justify-between">
+                            <span class="font-medium">Do you charge for initial consultations?</span>
+                            <i class="fas fa-chevron-down text-gray-400 transform transition-transform"></i>
                         </div>
+                    </button>
+                    <div class="hidden px-6 pb-4 text-gray-600">
+                        No, our initial consultation is completely free. We'll assess your needs and provide recommendations at no cost.
                     </div>
-                    <div class="accordion-item">
-                        <h2 class="accordion-header">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
-                                What areas do you serve?
-                            </button>
-                        </h2>
-                        <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                            <div class="accordion-body">
-                                We serve the entire metro area and surrounding communities. Contact us to confirm service availability in your specific location.
-                            </div>
+                </div>
+
+                <div class="bg-white rounded-lg shadow">
+                    <button class="w-full text-left px-6 py-4 focus:outline-none" onclick="toggleFAQ(this)">
+                        <div class="flex items-center justify-between">
+                            <span class="font-medium">What areas do you serve?</span>
+                            <i class="fas fa-chevron-down text-gray-400 transform transition-transform"></i>
                         </div>
+                    </button>
+                    <div class="hidden px-6 pb-4 text-gray-600">
+                        We serve the entire metro area and surrounding communities. Contact us to confirm service availability in your specific location.
                     </div>
                 </div>
             </div>
@@ -269,7 +305,7 @@
 </section>
 
 <script>
-// Form validation and enhancement
+// Form validation
 document.getElementById('contactForm').addEventListener('submit', function(e) {
     const message = document.getElementById('message').value;
     if (message.length < 10) {
@@ -279,7 +315,7 @@ document.getElementById('contactForm').addEventListener('submit', function(e) {
     }
 });
 
-// Character counter for message field
+// Character counter for message
 const messageField = document.getElementById('message');
 messageField.addEventListener('input', function() {
     const length = this.value.length;
@@ -289,12 +325,20 @@ messageField.addEventListener('input', function() {
     let helpText = this.nextElementSibling;
     if (remaining > 0) {
         helpText.textContent = `${remaining} more characters needed (minimum 10).`;
-        helpText.className = 'form-text text-warning';
+        helpText.className = 'text-sm text-yellow-600 mt-1';
     } else {
         helpText.textContent = `${length} characters entered.`;
-        helpText.className = 'form-text text-success';
+        helpText.className = 'text-sm text-green-600 mt-1';
     }
 });
+
+// FAQ Toggle
+function toggleFAQ(button) {
+    const content = button.nextElementSibling;
+    const icon = button.querySelector('.fa-chevron-down');
+    
+    content.classList.toggle('hidden');
+    icon.classList.toggle('rotate-180');
+}
 </script>
 
-<%- include('partials/footer') %>

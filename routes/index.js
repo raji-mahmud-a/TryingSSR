@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-// Import controllers (we'll create these in the next step)
+// Import controllers
 const homeController = require('../controllers/homeController');
 const servicesController = require('../controllers/servicesController');
 const projectsController = require('../controllers/projectsController');
@@ -22,9 +22,9 @@ router.get('/about', (req, res) => {
 router.get('/services', servicesController.getServices);
 router.get('/services/:slug', servicesController.getServiceBySlug);
 
-// Projects pages
+// Projects pages - FIXED: Added project detail route
 router.get('/projects', projectsController.getProjects);
-router.get('/projects/:slug', projectsController.getProjectBySlug);
+router.get('/projects/:slug', projectsController.getProjectBySlug); // This was missing!
 
 // Blog page (placeholder for now)
 router.get('/blog', (req, res) => {

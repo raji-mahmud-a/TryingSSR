@@ -1,9 +1,9 @@
-<header class="fixed top-0 w-full z-50 bg-navy-800 text-white backdrop-blur-md border-b border-navy-700 transition-all duration-300">
+<header class="fixed top-0 w-full z-50 bg-white/95 backdrop-blur-md border-b border-gray-200/50 transition-all duration-300">
     <!-- Top Bar -->
     <div class="bg-navy-800 text-white py-2 animate-slide-down">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between text-sm sm:text-md">
-                <div class="flex items-center space-x-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-6 text-sm">
                     <div class="flex items-center space-x-2 group">
                         <i class="fas fa-phone text-brand-400 group-hover:animate-bounce-gentle"></i>
                         <a href="tel:+15551234567" class="hover:text-brand-300 transition-colors duration-200">
@@ -18,10 +18,18 @@
                     </div>
                 </div>
                 <div class="flex items-center space-x-3">
-                    <a href="#" class="hover:text-brand-300 transition-colors duration-200"><i class="fab fa-facebook"></i></a>
-                    <a href="#" class="hover:text-brand-300 transition-colors duration-200"><i class="fab fa-twitter"></i></a>
-                    <a href="#" class="hover:text-brand-300 transition-colors duration-200"><i class="fab fa-instagram"></i></a>
-                    <a href="#" class="hover:text-brand-300 transition-colors duration-200"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" class="text-white hover:text-brand-300 transition-colors duration-200 hover:scale-110 transform">
+                        <i class="fab fa-facebook text-lg"></i>
+                    </a>
+                    <a href="#" class="text-white hover:text-brand-300 transition-colors duration-200 hover:scale-110 transform">
+                        <i class="fab fa-twitter text-lg"></i>
+                    </a>
+                    <a href="#" class="text-white hover:text-brand-300 transition-colors duration-200 hover:scale-110 transform">
+                        <i class="fab fa-instagram text-lg"></i>
+                    </a>
+                    <a href="#" class="text-white hover:text-brand-300 transition-colors duration-200 hover:scale-110 transform">
+                        <i class="fab fa-linkedin text-lg"></i>
+                    </a>
                 </div>
             </div>
         </div>
@@ -30,56 +38,176 @@
     <!-- Navigation -->
     <nav class="relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center py-3">
+            <div class="flex justify-between items-center py-4">
                 <!-- Logo -->
-                <div class="flex-shrink-0">
-                    <a href="/" class="flex items-center">
-                        <!-- Mobile logo -->
-                        <img src="/images/logo-icon.png" alt="Logo" class="h-10 w-auto block sm:hidden">
-                        <!-- Desktop logo -->
-                        <img src="/images/logo-full.png" alt="Mayor-K Prime Properties" class="h-10 w-auto hidden sm:block">
+                <div class="flex-shrink-0 animate-scale-in">
+                    <a href="/" class="flex items-center space-x-3 group">
+                        <div class="relative">
+                            <div class="w-10 h-10 bg-gradient-to-br from-brand-400 to-brand-600 rounded-lg flex items-center justify-center group-hover:rotate-6 transition-transform duration-300">
+                                <i class="fas fa-home text-white text-xl"></i>
+                            </div>
+                        </div>
+                        <div class="hidden sm:block">
+                            <div class="text-2xl font-bold bg-gradient-to-r from-navy-800 to-brand-600 bg-clip-text text-transparent">
+                                Mayor-K Prime
+                            </div>
+                            <div class="text-xs text-gray-600 -mt-1">Properties</div>
+                        </div>
                     </a>
                 </div>
 
                 <!-- Desktop Navigation -->
-                <div class="hidden lg:flex items-center space-x-1 text-white">
-                    <a href="/" class="px-4 py-2 rounded-lg hover:bg-navy-700 transition">Home</a>
-                    <a href="/about" class="px-4 py-2 rounded-lg hover:bg-navy-700 transition">About</a>
-                    <a href="/services" class="px-4 py-2 rounded-lg hover:bg-navy-700 transition">Services</a>
-                    <a href="/projects" class="px-4 py-2 rounded-lg hover:bg-navy-700 transition">Projects</a>
-                    <a href="/blog" class="px-4 py-2 rounded-lg hover:bg-navy-700 transition">Blog</a>
-                    <a href="/contact" class="px-4 py-2 rounded-lg hover:bg-navy-700 transition">Contact</a>
+                <div class="hidden lg:flex items-center space-x-1">
+                    <a href="/" class="nav-link group <%= currentPage === 'home' ? 'text-brand-600' : 'text-gray-700' %>">
+                        <div class="flex items-center px-4 py-2 rounded-lg transition-all duration-200 hover:bg-brand-50 hover:text-brand-700">
+                            <i class="fas fa-home mr-2 group-hover:animate-bounce-gentle"></i>
+                            <span class="font-medium">Home</span>
+                        </div>
+                    </a>
+                    <a href="/about" class="nav-link group <%= currentPage === 'about' ? 'text-brand-600' : 'text-gray-700' %>">
+                        <div class="flex items-center px-4 py-2 rounded-lg transition-all duration-200 hover:bg-brand-50 hover:text-brand-700">
+                            <i class="fas fa-users mr-2 group-hover:animate-pulse-gentle"></i>
+                            <span class="font-medium">About</span>
+                        </div>
+                    </a>
+                    
+                    <!-- Services Dropdown -->
+                    <div class="relative group">
+                        <button class="nav-link flex items-center px-4 py-2 rounded-lg transition-all duration-200 hover:bg-brand-50 hover:text-brand-700 <%= currentPage === 'services' ? 'text-brand-600' : 'text-gray-700' %>">
+                            <i class="fas fa-concierge-bell mr-2 group-hover:animate-bounce-gentle"></i>
+                            <span class="font-medium">Services</span>
+                            <i class="fas fa-chevron-down ml-1 text-xs group-hover:rotate-180 transition-transform duration-200"></i>
+                        </button>
+                        <div class="absolute top-full left-0 mt-2 w-64 bg-white rounded-xl shadow-xl border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform group-hover:translate-y-0 translate-y-2">
+                            <div class="p-2">
+                                <a href="/services" class="block px-4 py-3 rounded-lg hover:bg-brand-50 hover:text-brand-700 transition-colors duration-200">
+                                    <div class="flex items-center">
+                                        <i class="fas fa-list mr-3 text-brand-500"></i>
+                                        <span class="font-medium">All Services</span>
+                                    </div>
+                                </a>
+                                <hr class="my-2 border-gray-100">
+                                <a href="/services/buying-assistance" class="block px-4 py-3 rounded-lg hover:bg-brand-50 hover:text-brand-700 transition-colors duration-200">
+                                    <div class="flex items-center">
+                                        <i class="fas fa-shopping-cart mr-3 text-brand-500"></i>
+                                        <span>Buying Assistance</span>
+                                    </div>
+                                </a>
+                                <a href="/services/selling-support" class="block px-4 py-3 rounded-lg hover:bg-brand-50 hover:text-brand-700 transition-colors duration-200">
+                                    <div class="flex items-center">
+                                        <i class="fas fa-handshake mr-3 text-brand-500"></i>
+                                        <span>Selling Support</span>
+                                    </div>
+                                </a>
+                                <a href="/services/property-management" class="block px-4 py-3 rounded-lg hover:bg-brand-50 hover:text-brand-700 transition-colors duration-200">
+                                    <div class="flex items-center">
+                                        <i class="fas fa-building mr-3 text-brand-500"></i>
+                                        <span>Property Management</span>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Projects Dropdown -->
+                    <div class="relative group">
+                        <button class="nav-link flex items-center px-4 py-2 rounded-lg transition-all duration-200 hover:bg-brand-50 hover:text-brand-700 <%= currentPage === 'projects' ? 'text-brand-600' : 'text-gray-700' %>">
+                            <i class="fas fa-building mr-2 group-hover:animate-float"></i>
+                            <span class="font-medium">Projects</span>
+                            <i class="fas fa-chevron-down ml-1 text-xs group-hover:rotate-180 transition-transform duration-200"></i>
+                        </button>
+                        <div class="absolute top-full left-0 mt-2 w-64 bg-white rounded-xl shadow-xl border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform group-hover:translate-y-0 translate-y-2">
+                            <div class="p-2">
+                                <a href="/projects" class="block px-4 py-3 rounded-lg hover:bg-brand-50 hover:text-brand-700 transition-colors duration-200">
+                                    <div class="flex items-center">
+                                        <i class="fas fa-list mr-3 text-brand-500"></i>
+                                        <span class="font-medium">All Projects</span>
+                                    </div>
+                                </a>
+                                <hr class="my-2 border-gray-100">
+                                <a href="/projects?category=residential" class="block px-4 py-3 rounded-lg hover:bg-brand-50 hover:text-brand-700 transition-colors duration-200">
+                                    <div class="flex items-center">
+                                        <i class="fas fa-home mr-3 text-brand-500"></i>
+                                        <span>Residential</span>
+                                    </div>
+                                </a>
+                                <a href="/projects?category=commercial" class="block px-4 py-3 rounded-lg hover:bg-brand-50 hover:text-brand-700 transition-colors duration-200">
+                                    <div class="flex items-center">
+                                        <i class="fas fa-building mr-3 text-brand-500"></i>
+                                        <span>Commercial</span>
+                                    </div>
+                                </a>
+                                <a href="/projects?category=luxury" class="block px-4 py-3 rounded-lg hover:bg-brand-50 hover:text-brand-700 transition-colors duration-200">
+                                    <div class="flex items-center">
+                                        <i class="fas fa-crown mr-3 text-brand-500"></i>
+                                        <span>Luxury</span>
+                                    </div>
+                                </a>
+                                <a href="/projects?featured=true" class="block px-4 py-3 rounded-lg hover:bg-brand-50 hover:text-brand-700 transition-colors duration-200">
+                                    <div class="flex items-center">
+                                        <i class="fas fa-star mr-3 text-brand-500"></i>
+                                        <span>Featured</span>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="/blog" class="nav-link group <%= currentPage === 'blog' ? 'text-brand-600' : 'text-gray-700' %>">
+                        <div class="flex items-center px-4 py-2 rounded-lg transition-all duration-200 hover:bg-brand-50 hover:text-brand-700">
+                            <i class="fas fa-blog mr-2 group-hover:animate-pulse-gentle"></i>
+                            <span class="font-medium">Blog</span>
+                        </div>
+                    </a>
+                    <a href="/contact" class="nav-link group <%= currentPage === 'contact' ? 'text-brand-600' : 'text-gray-700' %>">
+                        <div class="flex items-center px-4 py-2 rounded-lg transition-all duration-200 hover:bg-brand-50 hover:text-brand-700">
+                            <i class="fas fa-envelope mr-2 group-hover:animate-bounce-gentle"></i>
+                            <span class="font-medium">Contact</span>
+                        </div>
+                    </a>
                 </div>
 
-                <!-- CTA -->
-                <div class="hidden lg:block">
-                    <a href="/contact" class="bg-gradient-to-r from-brand-500 to-brand-600 text-white px-5 py-2 rounded-lg font-semibold hover:from-brand-600 hover:to-brand-700 transition">
+                <!-- CTA Button -->
+                <div class="hidden lg:block animate-scale-in">
+                    <a href="/contact" class="bg-gradient-to-r from-brand-500 to-brand-600 text-white px-6 py-3 rounded-xl font-semibold hover:from-brand-600 hover:to-brand-700 transition-all duration-300 transform hover:scale-105 hover:shadow-lg flex items-center group">
+                        <i class="fas fa-phone mr-2 group-hover:animate-bounce-gentle"></i>
                         Get Quote
                     </a>
                 </div>
 
                 <!-- Mobile menu button -->
                 <div class="lg:hidden">
-                    <button id="mobile-menu-btn" class="flex items-center space-x-2 px-3 py-2 rounded-lg bg-navy-700 hover:bg-navy-600 transition">
-                        <i class="fas fa-bars text-lg"></i>
-                        <span class="text-sm">Menu</span>
+                    <button id="mobile-menu-btn" class="p-2 rounded-lg text-gray-700 hover:bg-gray-100 transition-colors duration-200">
+                        <i class="fas fa-bars text-xl"></i>
                     </button>
                 </div>
             </div>
         </div>
 
         <!-- Mobile Navigation Menu -->
-        <div id="mobile-menu" class="lg:hidden absolute top-full left-0 w-full bg-navy-800 shadow-lg border-t border-navy-700 opacity-0 invisible transition-all duration-300 transform -translate-y-3">
-            <div class="p-4 space-y-2 text-white">
-                <a href="/" class="block px-4 py-2 rounded-lg hover:bg-navy-700 transition">Home</a>
-                <a href="/about" class="block px-4 py-2 rounded-lg hover:bg-navy-700 transition">About</a>
-                <a href="/services" class="block px-4 py-2 rounded-lg hover:bg-navy-700 transition">Services</a>
-                <a href="/projects" class="block px-4 py-2 rounded-lg hover:bg-navy-700 transition">Projects</a>
-                <a href="/blog" class="block px-4 py-2 rounded-lg hover:bg-navy-700 transition">Blog</a>
-                <a href="/contact" class="block px-4 py-2 rounded-lg hover:bg-navy-700 transition">Contact</a>
-                <div class="pt-3">
-                    <a href="/contact" class="block w-full bg-gradient-to-r from-brand-500 to-brand-600 text-white px-5 py-2 rounded-lg text-center font-semibold hover:from-brand-600 hover:to-brand-700 transition">
-                        Get Quote
+        <div id="mobile-menu" class="lg:hidden absolute top-full left-0 w-full bg-white shadow-xl border-t border-gray-100 opacity-0 invisible transition-all duration-300 transform -translate-y-4">
+            <div class="p-4 space-y-2">
+                <a href="/" class="block px-4 py-3 rounded-lg hover:bg-brand-50 hover:text-brand-700 transition-colors duration-200 <%= currentPage === 'home' ? 'text-brand-600 bg-brand-50' : 'text-gray-700' %>">
+                    <i class="fas fa-home mr-3"></i>Home
+                </a>
+                <a href="/about" class="block px-4 py-3 rounded-lg hover:bg-brand-50 hover:text-brand-700 transition-colors duration-200 <%= currentPage === 'about' ? 'text-brand-600 bg-brand-50' : 'text-gray-700' %>">
+                    <i class="fas fa-users mr-3"></i>About
+                </a>
+                <a href="/services" class="block px-4 py-3 rounded-lg hover:bg-brand-50 hover:text-brand-700 transition-colors duration-200 <%= currentPage === 'services' ? 'text-brand-600 bg-brand-50' : 'text-gray-700' %>">
+                    <i class="fas fa-concierge-bell mr-3"></i>Services
+                </a>
+                <a href="/projects" class="block px-4 py-3 rounded-lg hover:bg-brand-50 hover:text-brand-700 transition-colors duration-200 <%= currentPage === 'projects' ? 'text-brand-600 bg-brand-50' : 'text-gray-700' %>">
+                    <i class="fas fa-building mr-3"></i>Projects
+                </a>
+                <a href="/blog" class="block px-4 py-3 rounded-lg hover:bg-brand-50 hover:text-brand-700 transition-colors duration-200 <%= currentPage === 'blog' ? 'text-brand-600 bg-brand-50' : 'text-gray-700' %>">
+                    <i class="fas fa-blog mr-3"></i>Blog
+                </a>
+                <a href="/contact" class="block px-4 py-3 rounded-lg hover:bg-brand-50 hover:text-brand-700 transition-colors duration-200 <%= currentPage === 'contact' ? 'text-brand-600 bg-brand-50' : 'text-gray-700' %>">
+                    <i class="fas fa-envelope mr-3"></i>Contact
+                </a>
+                <div class="pt-4 border-t border-gray-100">
+                    <a href="/contact" class="block w-full bg-gradient-to-r from-brand-500 to-brand-600 text-white px-6 py-3 rounded-xl font-semibold text-center hover:from-brand-600 hover:to-brand-700 transition-all duration-300">
+                        <i class="fas fa-phone mr-2"></i>Get Quote
                     </a>
                 </div>
             </div>
@@ -88,22 +216,32 @@
 </header>
 
 <!-- Spacer for fixed header -->
-<div style="height:6.25rem;"></div>
+<div class="h-32"></div>
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-    const btn = document.getElementById('mobile-menu-btn');
-    const menu = document.getElementById('mobile-menu');
-    let open = false;
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    
+    if (mobileMenuBtn && mobileMenu) {
+        mobileMenuBtn.addEventListener('click', function() {
+            const isVisible = !mobileMenu.classList.contains('opacity-0');
+            
+            if (isVisible) {
+                mobileMenu.classList.add('opacity-0', 'invisible', '-translate-y-4');
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars text-xl"></i>';
+            } else {
+                mobileMenu.classList.remove('opacity-0', 'invisible', '-translate-y-4');
+                mobileMenuBtn.innerHTML = '<i class="fas fa-times text-xl"></i>';
+            }
+        });
+    }
 
-    btn.addEventListener('click', () => {
-        open = !open;
-        if (open) {
-            menu.classList.remove('opacity-0', 'invisible', '-translate-y-3');
-            btn.innerHTML = '<i class="fas fa-times text-lg"></i><span class="ml-2 text-sm">Close</span>';
-        } else {
-            menu.classList.add('opacity-0', 'invisible', '-translate-y-3');
-            btn.innerHTML = '<i class="fas fa-bars text-lg"></i><span class="ml-2 text-sm">Menu</span>';
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', function(event) {
+        if (!mobileMenuBtn.contains(event.target) && !mobileMenu.contains(event.target)) {
+            mobileMenu.classList.add('opacity-0', 'invisible', '-translate-y-4');
+            mobileMenuBtn.innerHTML = '<i class="fas fa-bars text-xl"></i>';
         }
     });
 });

@@ -1,0 +1,354 @@
+<!-- Page Header -->
+<section class="pt-32 pb-20 bg-gradient-to-br from-navy-900 via-navy-800 to-brand-800 relative overflow-hidden">
+    <!-- Background Elements -->
+    <div class="absolute inset-0">
+        <div class="absolute top-20 left-10 w-72 h-72 bg-brand-400/10 rounded-full blur-3xl animate-float"></div>
+        <div class="absolute bottom-20 right-10 w-96 h-96 bg-brand-300/10 rounded-full blur-3xl animate-float" style="animation-delay: 2s;"></div>
+    </div>
+    
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="animate-slide-up text-center">
+            <div class="inline-flex items-center px-4 py-2 rounded-full bg-brand-400/20 text-brand-300 text-sm font-medium mb-6">
+                <i class="fas fa-building mr-2"></i>
+                Property Details
+            </div>
+            
+            <h1 class="text-4xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+                <%= project.title %>
+            </h1>
+            
+            <div class="flex justify-center items-center space-x-4 text-gray-300 mb-6">
+                <% if (project.location && project.location.city) { %>
+                <div class="flex items-center">
+                    <i class="fas fa-map-marker-alt text-brand-400 mr-2"></i>
+                    <span><%= project.location.city %><% if (project.location.state) { %>, <%= project.location.state %><% } %></span>
+                </div>
+                <% } %>
+                
+                <div class="flex items-center">
+                    <i class="fas fa-tag text-brand-400 mr-2"></i>
+                    <span class="capitalize"><%= project.status %></span>
+                </div>
+                
+                <% if (project.featured) { %>
+                <div class="flex items-center">
+                    <i class="fas fa-star text-amber-400 mr-2"></i>
+                    <span>Featured</span>
+                </div>
+                <% } %>
+            </div>
+            
+            <!-- Breadcrumb -->
+            <nav class="flex justify-center" aria-label="breadcrumb">
+                <ol class="flex items-center space-x-2 text-gray-400 text-sm">
+                    <li><a href="/" class="hover:text-brand-300 transition-colors duration-200">Home</a></li>
+                    <li><i class="fas fa-chevron-right mx-2 text-xs"></i></li>
+                    <li><a href="/projects" class="hover:text-brand-300 transition-colors duration-200">Projects</a></li>
+                    <li><i class="fas fa-chevron-right mx-2 text-xs"></i></li>
+                    <li class="text-brand-300"><%= project.title %></li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+</section>
+
+<!-- Project Details -->
+<section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid lg:grid-cols-3 gap-12">
+            <!-- Main Content -->
+            <div class="lg:col-span-2">
+                <!-- Images Gallery -->
+                <% if (project.images && project.images.length > 0) { %>
+                <div class="mb-12">
+                    <div class="grid gap-4">
+                        <% const primaryImage = project.images.find(img => img.isPrimary) || project.images[0]; %>
+                        
+                        <!-- Main Image -->
+                        <div class="aspect-video rounded-2xl overflow-hidden shadow-xl">
+                            <% if (primaryImage.url.startsWith('/images/')) { %>
+                            <!-- Placeholder for actual image -->
+                            <div class="w-full h-full bg-gradient-to-br from-brand-200 to-brand-300 flex items-center justify-center">
+                                <div class="text-center text-brand-700">
+                                    <i class="fas fa-image text-6xl mb-4"></i>
+                                    <p class="text-xl font-semibold"><%= primaryImage.caption || project.title %></p>
+                                </div>
+                            </div>
+                            <% } else { %>
+                            <img src="<%= primaryImage.url %>" alt="<%= primaryImage.alt || project.title %>" class="w-full h-full object-cover">
+                            <% } %>
+                        </div>
+                        
+                        <!-- Additional Images -->
+                        <% if (project.images.length > 1) { %>
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                            <% project.images.forEach((image, index) => { %>
+                                <% if (!image.isPrimary) { %>
+                                <div class="aspect-video rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300 cursor-pointer">
+                                    <% if (image.url.startsWith('/images/')) { %>
+                                    <div class="w-full h-full bg-gradient-to-br from-brand-100 to-brand-200 flex items-center justify-center">
+                                        <i class="fas fa-image text-2xl text-brand-600"></i>
+                                    </div>
+                                    <% } else { %>
+                                    <img src="<%= image.url %>" alt="<%= image.alt || project.title %>" class="w-full h-full object-cover">
+                                    <% } %>
+                                </div>
+                                <% } %>
+                            <% }); %>
+                        </div>
+                        <% } %>
+                    </div>
+                </div>
+                <% } %>
+
+                <!-- Project Description -->
+                <div class="mb-12">
+                    <h2 class="text-3xl font-bold text-navy-800 mb-6">About This Property</h2>
+                    <div class="prose prose-lg max-w-none text-gray-600">
+                        <%= project.description %>
+                    </div>
+                </div>
+
+                <!-- Specifications -->
+                <% if (project.specifications) { %>
+                <div class="mb-12">
+                    <h3 class="text-2xl font-bold text-navy-800 mb-6">Property Specifications</h3>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <% if (project.specifications.area) { %>
+                        <div class="bg-gray-50 p-6 rounded-xl text-center">
+                            <i class="fas fa-ruler-combined text-3xl text-brand-600 mb-3"></i>
+                            <div class="text-2xl font-bold text-navy-800"><%= project.specifications.area %></div>
+                            <div class="text-gray-600">Total Area</div>
+                        </div>
+                        <% } %>
+                        
+                        <% if (project.specifications.bedrooms) { %>
+                        <div class="bg-gray-50 p-6 rounded-xl text-center">
+                            <i class="fas fa-bed text-3xl text-brand-600 mb-3"></i>
+                            <div class="text-2xl font-bold text-navy-800"><%= project.specifications.bedrooms %></div>
+                            <div class="text-gray-600">Bedrooms</div>
+                        </div>
+                        <% } %>
+                        
+                        <% if (project.specifications.bathrooms) { %>
+                        <div class="bg-gray-50 p-6 rounded-xl text-center">
+                            <i class="fas fa-bath text-3xl text-brand-600 mb-3"></i>
+                            <div class="text-2xl font-bold text-navy-800"><%= project.specifications.bathrooms %></div>
+                            <div class="text-gray-600">Bathrooms</div>
+                        </div>
+                        <% } %>
+                        
+                        <% if (project.specifications.parking) { %>
+                        <div class="bg-gray-50 p-6 rounded-xl text-center">
+                            <i class="fas fa-car text-3xl text-brand-600 mb-3"></i>
+                            <div class="text-sm font-bold text-navy-800"><%= project.specifications.parking %></div>
+                            <div class="text-gray-600">Parking</div>
+                        </div>
+                        <% } %>
+                        
+                        <% if (project.specifications.yearBuilt) { %>
+                        <div class="bg-gray-50 p-6 rounded-xl text-center">
+                            <i class="fas fa-calendar text-3xl text-brand-600 mb-3"></i>
+                            <div class="text-2xl font-bold text-navy-800"><%= project.specifications.yearBuilt %></div>
+                            <div class="text-gray-600">Year Built</div>
+                        </div>
+                        <% } %>
+                        
+                        <% if (project.specifications.lotSize) { %>
+                        <div class="bg-gray-50 p-6 rounded-xl text-center">
+                            <i class="fas fa-expand-arrows-alt text-3xl text-brand-600 mb-3"></i>
+                            <div class="text-sm font-bold text-navy-800"><%= project.specifications.lotSize %></div>
+                            <div class="text-gray-600">Lot Size</div>
+                        </div>
+                        <% } %>
+                    </div>
+                </div>
+                <% } %>
+
+                <!-- Amenities -->
+                <% if (project.amenities && project.amenities.length > 0) { %>
+                <div class="mb-12">
+                    <h3 class="text-2xl font-bold text-navy-800 mb-6">Amenities & Features</h3>
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <% project.amenities.forEach(amenity => { %>
+                        <div class="flex items-center bg-brand-50 p-4 rounded-xl">
+                            <i class="fas fa-check-circle text-brand-600 mr-3"></i>
+                            <span class="text-gray-700"><%= amenity %></span>
+                        </div>
+                        <% }); %>
+                    </div>
+                </div>
+                <% } %>
+            </div>
+
+            <!-- Sidebar -->
+            <div class="lg:col-span-1">
+                <!-- Price & Contact Card -->
+                <div class="bg-gradient-to-br from-navy-800 to-navy-900 text-white rounded-3xl p-8 mb-8">
+                    <div class="text-center mb-6">
+                        <div class="text-4xl font-bold text-brand-300 mb-2">
+                            <%= project.price && project.price.display ? project.price.display : 'Contact for Price' %>
+                        </div>
+                        <% if (project.price && project.price.type) { %>
+                        <div class="text-gray-300 capitalize">For <%= project.price.type %></div>
+                        <% } %>
+                    </div>
+                    
+                    <!-- Agent Info -->
+                    <% if (project.agent) { %>
+                    <div class="border-t border-white/20 pt-6 mb-6">
+                        <h4 class="text-lg font-bold mb-3">Your Agent</h4>
+                        <div class="text-center">
+                            <div class="w-16 h-16 bg-brand-500 rounded-full flex items-center justify-center mx-auto mb-3">
+                                <i class="fas fa-user text-2xl text-white"></i>
+                            </div>
+                            <div class="font-semibold text-brand-300"><%= project.agent.name %></div>
+                            <% if (project.agent.phone) { %>
+                            <div class="text-sm text-gray-300 mb-2">
+                                <i class="fas fa-phone mr-1"></i>
+                                <a href="tel:<%= project.agent.phone.replace(/\D/g, '') %>" class="hover:text-brand-300">
+                                    <%= project.agent.phone %>
+                                </a>
+                            </div>
+                            <% } %>
+                            <% if (project.agent.email) { %>
+                            <div class="text-sm text-gray-300">
+                                <i class="fas fa-envelope mr-1"></i>
+                                <a href="mailto:<%= project.agent.email %>" class="hover:text-brand-300">
+                                    <%= project.agent.email %>
+                                </a>
+                            </div>
+                            <% } %>
+                        </div>
+                    </div>
+                    <% } %>
+                    
+                    <div class="space-y-3">
+                        <a href="/contact?property=<%= project.slug %>" class="w-full bg-gradient-to-r from-brand-500 to-brand-600 text-white py-3 px-6 rounded-xl font-semibold hover:from-brand-600 hover:to-brand-700 transition-all duration-300 flex items-center justify-center">
+                            <i class="fas fa-envelope mr-2"></i>
+                            Contact About Property
+                        </a>
+                        <a href="tel:+15551234567" class="w-full bg-white/10 text-white py-3 px-6 rounded-xl font-semibold hover:bg-white/20 transition-all duration-300 flex items-center justify-center">
+                            <i class="fas fa-phone mr-2"></i>
+                            Call Now
+                        </a>
+                        <button class="w-full bg-white/10 text-white py-3 px-6 rounded-xl font-semibold hover:bg-white/20 transition-all duration-300 flex items-center justify-center">
+                            <i class="fas fa-heart mr-2"></i>
+                            Save Property
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Property Categories -->
+                <% if (project.category && project.category.length > 0) { %>
+                <div class="bg-white border border-gray-200 rounded-2xl p-6 mb-8">
+                    <h4 class="text-lg font-bold text-navy-800 mb-4">Property Categories</h4>
+                    <div class="flex flex-wrap gap-2">
+                        <% project.category.forEach(cat => { %>
+                        <span class="bg-brand-100 text-brand-800 px-3 py-1 rounded-full text-sm font-medium capitalize">
+                            <%= cat %>
+                        </span>
+                        <% }); %>
+                    </div>
+                </div>
+                <% } %>
+
+                <!-- Location -->
+                <% if (project.location) { %>
+                <div class="bg-white border border-gray-200 rounded-2xl p-6 mb-8">
+                    <h4 class="text-lg font-bold text-navy-800 mb-4">
+                        <i class="fas fa-map-marker-alt text-brand-600 mr-2"></i>
+                        Location
+                    </h4>
+                    <div class="space-y-2 text-gray-600">
+                        <% if (project.location.address) { %>
+                        <div><%= project.location.address %></div>
+                        <% } %>
+                        <div>
+                            <% if (project.location.city) { %><%= project.location.city %><% } %>
+                            <% if (project.location.state) { %>, <%= project.location.state %><% } %>
+                            <% if (project.location.zipCode) { %> <%= project.location.zipCode %><% } %>
+                        </div>
+                    </div>
+                    
+                    <!-- Map Placeholder -->
+                    <div class="mt-4 h-48 bg-gray-100 rounded-xl flex items-center justify-center">
+                        <div class="text-center text-gray-500">
+                            <i class="fas fa-map text-3xl mb-2"></i>
+                            <p>Interactive Map</p>
+                            <p class="text-sm">Coming Soon</p>
+                        </div>
+                    </div>
+                </div>
+                <% } %>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Related Projects -->
+<% if (relatedProjects && relatedProjects.length > 0) { %>
+<section class="py-20 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold text-navy-800 mb-4">Similar Properties</h2>
+            <p class="text-gray-600">You might also be interested in these properties</p>
+        </div>
+        
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <% relatedProjects.forEach(relatedProject => { %>
+                <% const relatedPrimaryImage = relatedProject.images && relatedProject.images.length > 0 ? (relatedProject.images.find(img => img.isPrimary) || relatedProject.images[0]) : null; %>
+            <div class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
+                <div class="aspect-video relative">
+                    <% if (relatedPrimaryImage && !relatedPrimaryImage.url.startsWith('/images/')) { %>
+                    <img src="<%= relatedPrimaryImage.url %>" alt="<%= relatedProject.title %>" class="w-full h-full object-cover">
+                    <% } else { %>
+                    <div class="w-full h-full bg-gradient-to-br from-brand-200 to-brand-300 flex items-center justify-center">
+                        <i class="fas fa-building text-4xl text-brand-600"></i>
+                    </div>
+                    <% } %>
+                    
+                    <% if (relatedProject.featured) { %>
+                    <div class="absolute top-4 left-4">
+                        <span class="bg-amber-500 text-white px-2 py-1 rounded-full text-xs font-semibold">
+                            <i class="fas fa-star mr-1"></i>Featured
+                        </span>
+                    </div>
+                    <% } %>
+                    
+                    <div class="absolute bottom-4 right-4">
+                        <span class="bg-navy-800/90 text-white px-3 py-1 rounded-full text-sm font-semibold">
+                            <%= relatedProject.price && relatedProject.price.display ? relatedProject.price.display : 'Contact for Price' %>
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="p-6">
+                    <h3 class="text-xl font-bold text-navy-800 mb-2">
+                        <a href="/projects/<%= relatedProject.slug %>" class="hover:text-brand-600 transition-colors duration-200">
+                            <%= relatedProject.title %>
+                        </a>
+                    </h3>
+                    
+                    <% if (relatedProject.location && relatedProject.location.city) { %>
+                    <div class="text-gray-600 mb-3 flex items-center">
+                        <i class="fas fa-map-marker-alt text-brand-500 mr-2"></i>
+                        <%= relatedProject.location.city %>
+                    </div>
+                    <% } %>
+                    
+                    <p class="text-gray-600 text-sm mb-4">
+                        <%= relatedProject.shortDescription || (relatedProject.description.length > 100 ? relatedProject.description.substring(0, 97) + '...' : relatedProject.description) %>
+                    </p>
+                    
+                    <a href="/projects/<%= relatedProject.slug %>" class="inline-flex items-center text-brand-600 font-semibold hover:text-brand-700 transition-colors duration-200">
+                        View Details
+                        <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+            </div>
+            <% }); %>
+        </div>
+    </div>
+</section>
+<% } %>

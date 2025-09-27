@@ -1,4 +1,4 @@
-<footer class="bg-gradient-to-br from-navy-900 to-navy-800 text-white relative overflow-hidden font-inter">
+<footer class="bg-gradient-to-br from-navy-900 to-navy-800 text-white relative overflow-hidden">
     <!-- Background Elements -->
     <div class="absolute inset-0">
         <div class="absolute top-20 left-20 w-40 h-40 bg-brand-400/5 rounded-full blur-3xl"></div>
@@ -7,7 +7,6 @@
     
     <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div class="grid lg:grid-cols-4 md:grid-cols-2 gap-8">
-            
             <!-- Company Info -->
             <div class="lg:col-span-1">
                 <div class="flex items-center space-x-3 mb-6">
@@ -67,45 +66,70 @@
                 <ul class="space-y-3">
                     <li><a href="/services/buying-assistance" class="text-gray-300 hover:text-brand-300 transition-all duration-200 hover:translate-x-1 transform inline-block">Buying Assistance</a></li>
                     <li><a href="/services/selling-support" class="text-gray-300 hover:text-brand-300 transition-all duration-200 hover:translate-x-1 transform inline-block">Selling Support</a></li>
-                    <li><a href="/services/rentals" class="text-gray-300 hover:text-brand-300 transition-all duration-200 hover:translate-x-1 transform inline-block">Property Rentals</a></li>
-                    <li><a href="/services/management" class="text-gray-300 hover:text-brand-300 transition-all duration-200 hover:translate-x-1 transform inline-block">Property Management</a></li>
-                    <li><a href="/services/valuation" class="text-gray-300 hover:text-brand-300 transition-all duration-200 hover:translate-x-1 transform inline-block">Property Valuation</a></li>
-                    <li><a href="/services/investment" class="text-gray-300 hover:text-brand-300 transition-all duration-200 hover:translate-x-1 transform inline-block">Real Estate Investment</a></li>
+                    <li><a href="/services/property-management" class="text-gray-300 hover:text-brand-300 transition-all duration-200 hover:translate-x-1 transform inline-block">Property Management</a></li>
+                    <li><a href="/services/investment-consultation" class="text-gray-300 hover:text-brand-300 transition-all duration-200 hover:translate-x-1 transform inline-block">Investment Consultation</a></li>
+                    <li><a href="/services/property-valuation" class="text-gray-300 hover:text-brand-300 transition-all duration-200 hover:translate-x-1 transform inline-block">Property Valuation</a></li>
                 </ul>
             </div>
 
-            <!-- Newsletter -->
+            <!-- Newsletter & Social -->
             <div>
                 <h3 class="text-lg font-bold text-white mb-6 flex items-center">
-                    <i class="fas fa-envelope-open-text text-brand-400 mr-2"></i>
-                    Newsletter
+                    <i class="fas fa-paper-plane text-brand-400 mr-2"></i>
+                    Stay Connected
                 </h3>
-                <p class="text-gray-300 mb-4 text-sm leading-relaxed">
-                    Subscribe to get the latest property updates, news, and exclusive offers.
-                </p>
-                <form class="flex flex-col space-y-3">
-                    <input type="email" placeholder="Enter your email" class="px-4 py-2 rounded-lg bg-navy-800 text-gray-200 placeholder-gray-500 border border-navy-700 focus:outline-none focus:ring-2 focus:ring-brand-400" />
-                    <button type="submit" class="px-4 py-2 rounded-lg bg-gradient-to-r from-brand-400 to-brand-600 text-white font-medium shadow-md hover:opacity-90 transition duration-200">
-                        Subscribe
-                    </button>
+                <p class="text-gray-300 mb-6">Subscribe to our newsletter for the latest property updates and market insights.</p>
+                
+                <!-- Newsletter Form -->
+                <form class="mb-6" id="newsletterForm">
+                    <div class="flex">
+                        <input type="email" placeholder="Enter your email" required 
+                               class="flex-1 px-4 py-3 bg-white/10 border border-white/20 rounded-l-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-brand-400 focus:border-brand-400 transition-all duration-200">
+                        <button type="submit" class="bg-gradient-to-r from-brand-500 to-brand-600 text-white px-6 py-3 rounded-r-xl hover:from-brand-600 hover:to-brand-700 transition-all duration-300 transform hover:scale-105 group">
+                            <i class="fas fa-paper-plane group-hover:animate-bounce-gentle"></i>
+                        </button>
+                    </div>
                 </form>
-                <div class="flex space-x-4 mt-6">
-                    <a href="#" class="text-gray-400 hover:text-brand-300 transition-colors duration-200"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" class="text-gray-400 hover:text-brand-300 transition-colors duration-200"><i class="fab fa-twitter"></i></a>
-                    <a href="#" class="text-gray-400 hover:text-brand-300 transition-colors duration-200"><i class="fab fa-instagram"></i></a>
-                    <a href="#" class="text-gray-400 hover:text-brand-300 transition-colors duration-200"><i class="fab fa-linkedin-in"></i></a>
+
+                <!-- Social Media -->
+                <div class="space-y-4">
+                    <h4 class="text-white font-semibold flex items-center">
+                        <i class="fas fa-share-alt text-brand-400 mr-2"></i>
+                        Follow Us
+                    </h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 bg-white/10 rounded-xl flex items-center justify-center text-white hover:bg-brand-500 hover:text-white transition-all duration-300 transform hover:scale-110 hover:-translate-y-1 group">
+                            <i class="fab fa-facebook group-hover:animate-bounce-gentle"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-white/10 rounded-xl flex items-center justify-center text-white hover:bg-brand-500 hover:text-white transition-all duration-300 transform hover:scale-110 hover:-translate-y-1 group">
+                            <i class="fab fa-twitter group-hover:animate-bounce-gentle"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-white/10 rounded-xl flex items-center justify-center text-white hover:bg-brand-500 hover:text-white transition-all duration-300 transform hover:scale-110 hover:-translate-y-1 group">
+                            <i class="fab fa-instagram group-hover:animate-bounce-gentle"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-white/10 rounded-xl flex items-center justify-center text-white hover:bg-brand-500 hover:text-white transition-all duration-300 transform hover:scale-110 hover:-translate-y-1 group">
+                            <i class="fab fa-linkedin group-hover:animate-bounce-gentle"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-white/10 rounded-xl flex items-center justify-center text-white hover:bg-brand-500 hover:text-white transition-all duration-300 transform hover:scale-110 hover:-translate-y-1 group">
+                            <i class="fab fa-youtube group-hover:animate-bounce-gentle"></i>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <!-- Bottom Bar -->
-        <div class="mt-16 pt-8 border-t border-navy-700 text-center text-sm text-gray-400">
-            © <span id="year"></span> Raji Mahmud 🔥🎗 All rights reserved.
+        <!-- Bottom Section -->
+        <div class="border-t border-white/10 mt-12 pt-8">
+            <div class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+                <div class="text-gray-400 text-sm">
+                    &copy; <%= new Date().getFullYear() %> Mayor-K Prime Properties. All rights reserved.
+                </div>
+                <div class="flex items-center space-x-6 text-sm">
+                    <a href="/privacy" class="text-gray-400 hover:text-brand-300 transition-colors duration-200">Privacy Policy</a>
+                    <a href="/terms" class="text-gray-400 hover:text-brand-300 transition-colors duration-200">Terms of Service</a>
+                    <a href="/sitemap" class="text-gray-400 hover:text-brand-300 transition-colors duration-200">Sitemap</a>
+                </div>
+            </div>
         </div>
     </div>
 </footer>
-
-<script>
-    // Auto year
-    document.getElementById('year').textContent = new Date().getFullYear();
-</script>

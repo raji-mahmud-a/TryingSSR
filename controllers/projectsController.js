@@ -24,6 +24,8 @@ const projectsController = {
       const allProjects = await Project.find();
       const categories = [...new Set(allProjects.flatMap(project => project.category))];
 
+      console.log('Projects found:', projects.length); // Debug log
+
       res.render('projects', {
         title: 'Our Projects - Mayor-K Prime Properties',
         currentPage: 'projects',
@@ -53,17 +55,22 @@ const projectsController = {
     }
   },
 
-  // GET /projects/:slug
+  // GET /projects/:slug - FIXED: Properly implemented
   getProjectBySlug: async (req, res) => {
     try {
+      console.log('Looking for project with slug:', req.params.slug); // Debug log
+      
       const project = await Project.findOne({ slug: req.params.slug });
 
       if (!project) {
+        console.log('Project not found for slug:', req.params.slug); // Debug log
         return res.status(404).render('404', {
           title: '404 - Project Not Found',
           currentPage: '404'
         });
       }
+
+      console.log('Project found:', project.title); // Debug log
 
       // Get related projects (same category, exclude current)
       const relatedProjects = await Project.find({
